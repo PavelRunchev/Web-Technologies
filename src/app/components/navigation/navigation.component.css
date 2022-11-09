@@ -1,0 +1,5 @@
+.input-search:focus {
+  outline: 0 none !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.095) inset, 0 0 8px rgba(77, 147, 217, 0.45) !important;
+}/*# sourceMappingURL=navigation.component.css.map */

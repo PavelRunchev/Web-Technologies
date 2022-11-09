@@ -28,9 +28,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/bootstrap-resource/bootstrap.css",
+              "src/assets/bootstrap-resource/bootstrap-grid.min.css",
+              "src/assets/bootstrap-resource/bootstrap-reboot.min.css",
+              "src/assets/bootstrap-resource/bootstrap-social.css",
+              "src/assets/bootstrap-resource/mdb.min.css",
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/bootstrap-resource/bootstrap-js/jquery.min.js",
+              "src/assets/bootstrap-resource/bootstrap-js/bootstrap.min.js",
+              "src/assets/bootstrap-resource/bootstrap-js/bootstrap.bundle.js",
+              "src/assets/bootstrap-resource/bootstrap-js/popper.min.js",
+              "src/assets/bootstrap-resource/bootstrap-js/scrolling.js",
+              "src/assets/bootstrap-resource/bootstrap-js/mdb.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -103,5 +116,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

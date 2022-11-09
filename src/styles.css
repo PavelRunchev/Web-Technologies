@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("./assets/fontawesome/css/all.css");
+@import url("./assets/fontawesome/css/brands.css");
+@import url("./assets/fontawesome/css/fontawesome.css");
+@import url("./assets/fontawesome/css/solid.css");
+@import url("./assets/fontawesome/css/regular.css");
+@font-face {
+  font-family: "Roboto";
+  src: url("./assets/fonts/roboto/Roboto-Black.eot") format("embedded-opentype");
+  src: url("./assets/fonts/roboto/Roboto-Black.ttf") format("truetype");
+  src: url("./assets/fonts/roboto/Roboto-Black.woff") format("woff");
+  src: url("./assets/fonts/roboto/Roboto-Black.woff2") format("woff2");
+  src: url("./assets/fonts/roboto/Roboto-Regular.eot") format("embedded-opentype");
+  src: url("./assets/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/roboto/Roboto-Regular.woff") format("woff");
+  src: url("./assets/fonts/roboto/Roboto-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Heebo";
+  src: url("./assets/fonts/heebo/Heebo-Black.ttf") format("truetype");
+  src: url("./assets/fonts/heebo/Heebo-Regular.eot") format("embedded-opentype");
+  src: url("./assets/fonts/heebo/Heebo-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/heebo/Heebo-Regular.woff") format("woff");
+  src: url("./assets/fonts/heebo/Heebo-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("./assets/fonts/open-sans/OpenSans-Light.eot") format("embedded-opentype");
+  src: url("./assets/fonts/open-sans/OpenSans-Light.ttf") format("truetype");
+  src: url("./assets/fonts/open-sans/OpenSans-Light.woff") format("woff");
+  src: url("./assets/fonts/open-sans/OpenSans-Light.woff2") format("woff2");
+  src: url("./assets/fonts/open-sans/OpenSans-SemiBold.eot") format("embedded-opentype");
+  src: url("./assets/fonts/open-sans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("./assets/fonts/open-sans/OpenSans-SemiBold.woff") format("woff");
+  src: url("./assets/fonts/open-sans/OpenSans-SemiBold.woff2") format("woff2");
+  src: url("./assets/fonts/open-sans/OpenSans-Regular.eot") format("embedded-opentype");
+  src: url("./assets/fonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/open-sans/OpenSans-Regular.woff") format("woff");
+  src: url("./assets/fonts/open-sans/OpenSans-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Heebo", "Open Sans", Helvetica;
+}
+
+a, button {
+  font-family: "Open Sans", "Heebo", Helvetica;
+}
+
+span, div {
+  font-family: "Roboto", sans-serif;
+}/*# sourceMappingURL=styles.css.map */
