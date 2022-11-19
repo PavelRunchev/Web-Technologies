@@ -1,0 +1,20 @@
+<p>home works!</p>
+
+<ul *ngFor="let t of technologies; let i = index">
+    <li>
+      <h3>Technology: {{ t.name}}</h3>
+      <img style="width: 250px;" src="{{t.imgUrl}}" alt="photo"/>
+      <div>{{t.description}}</div>
+      <iframe *ngIf="t.untrustedVideoUrl" width="400" height="300" 
+        [src]="t.untrustedVideoUrl" 
+        title="I built the same app 10 times // Which JS Framework is best?" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+
+      <img style="width: 250px;" src="{{t.imgUrl2}}" alt="photo"/>
+      <div>{{t.description}}</div>
+      <img style="width: 250px;" src="{{t.gif}}" alt="photo"/>
+    </li>
+</ul>

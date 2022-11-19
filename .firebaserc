@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "web-technologies-958a6": {
+      "hosting": {
+        "Web-Technologies": [
+          "web-technologies-958a6"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "web-technologies-958a6"
   }
