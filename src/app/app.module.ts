@@ -26,6 +26,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { NavigationComponent } from './shared/navigation/navigation.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './shared/home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
@@ -34,6 +35,7 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
   declarations: [
     AppComponent,
     NavigationComponent,
+    HeaderComponent,
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
@@ -51,7 +53,6 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
     MdbModalModule,
     MdbPopoverModule,
     MdbRadioModule,
-    MdbRangeModule,
     MdbRangeModule,
     MdbRippleModule,
     MdbScrollspyModule,

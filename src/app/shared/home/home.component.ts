@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       this.technologies = data;
       this.technologies
         .map(d => d['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(d.videoUrl + ''));
-        console.log(this.technologies[1])
+        //console.log(this.technologies[1])
     });
   }
 
