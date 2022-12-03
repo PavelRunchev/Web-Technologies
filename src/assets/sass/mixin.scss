@@ -1,0 +1,31 @@
+$background-primary: rgba(208,216,220, 1);
+$background-secondary: rgba(160,165,178, 0.15);
+$background-thirdly: rgba(160,165,178,0.25);
+$background-fourthly: rgba(173,34,22, 0.12);
+$color-primary: rgb(78,82,87);
+$color-secondary: rgb(86,16,19);
+$color-thirdly: rgb(173,34,22);
+
+@mixin form-shadow {
+    box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.55);
+}
+
+@mixin input-shadow {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(0,0,0,0.26);
+    box-shadow:         0px 0px 5px 0px rgba(0,0,0,0.26);
+}
+
+@mixin btn-shadow {
+    box-shadow: 1px 4px 9px -4px rgba(0, 0, 0, 0.66);
+    -webkit-box-shadow:  1px 4px 9px -4px rgba(0, 0, 0, 0.66);
+    -moz-box-shadow:  1px 4px 9px -4px rgba(0, 0, 0, 0.66);
+}
+
+@mixin btn-shadow-hover {
+    box-shadow:  0px 5px 15px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+    -webkit-box-shadow:  0px 5px 15px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow:  0px 5px 15px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+}

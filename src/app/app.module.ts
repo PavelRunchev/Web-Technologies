@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // MDB Modules
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
@@ -22,28 +23,31 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
+//Firebase Modules
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { NavigationComponent } from './shared/navigation/navigation.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { HomeComponent } from './shared/home/home.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+import { HomeComponent } from './components/shared/home/home.component';
+import { SharedModule } from './components/shared/shared.module';
+import { TechnologiesModule } from './components/technologies/technologies.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule,
+    TechnologiesModule,
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -60,7 +64,11 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
     MdbTooltipModule,
     MdbValidationModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule, 
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

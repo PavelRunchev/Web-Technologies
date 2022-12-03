@@ -1,1 +1,84 @@
-/*# sourceMappingURL=app.component.css.map */
+.toast-container {
+  width: 350px;
+  height: 100px;
+  color: #fff;
+  margin: 10px;
+  padding: 20px 25px;
+  position: fixed;
+  z-index: 10010;
+  pointer-events: auto;
+  box-shadow: 0 0 12px #999;
+  border-radius: 3px;
+  display: flex;
+}
+.toast-container .toast-content {
+  align-items: center;
+}
+.toast-container .toast-content .icon {
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #51a351;
+  padding-left: 6px;
+  margin-right: 10px;
+}
+.toast-container .closeBtn {
+  cursor: pointer;
+  pointer-events: auto;
+  position: absolute;
+  right: 12px;
+  top: 2px;
+  font-size: 20px;
+  transition: all 0.3s ease-out;
+}
+.toast-container .closeBtn:hover {
+  color: #DDD;
+}
+.toast-container.success {
+  background-color: #51a351;
+}
+.toast-container.success .toast-content .icon {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  color: #51a351;
+}
+.toast-container.error {
+  background-color: #bd362f;
+}
+.toast-container.error .toast-content .icon {
+  padding-left: 9px;
+  color: #bd362f;
+}
+.toast-container.warn {
+  background-color: #f89406;
+}
+.toast-container.warn .toast-content .icon {
+  padding-left: 9px;
+  color: #f89406;
+}
+.toast-container.info {
+  background-color: #2f96b4;
+}
+.toast-container.info .toast-content .icon {
+  padding-left: 9px;
+  color: #2f96b4;
+}
+.toast-container.top-left {
+  left: 0px;
+  top: 75px;
+}
+.toast-container.top-right {
+  right: 0px;
+  top: 75px;
+}
+.toast-container.bottom-left {
+  left: 0px;
+  top: 0px;
+}
+.toast-container.bottom-right {
+  right: 0px;
+  top: 0px;
+}/*# sourceMappingURL=app.component.css.map */

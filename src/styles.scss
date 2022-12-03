@@ -6,5 +6,15 @@
 
 
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
  
-//@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
+body, main {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+*:focus {
+    outline: none !important;
+}

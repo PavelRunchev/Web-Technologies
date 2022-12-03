@@ -77,9 +77,8 @@ $color-thirdly: rgb(173,34,22);
         transition: all 0.4s ease-out;
 
         &:focus {
-            outline: 0 none !important;
+            outline: none !important;
             color: $color-thirdly;
-            border-bottom: 1px solid $color-thirdly;
             border: 1px solid $color-thirdly;
             background-color: transparent;
             box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;

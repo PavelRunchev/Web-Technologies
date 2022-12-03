@@ -1,0 +1,29 @@
+<div>
+    <div *ngIf="loading">
+        <img [src]="loadingService.getUrl()" alt="photo"/>
+    </div>
+
+    <div *ngIf="loading == false">
+       
+            <h3>Technology: {{ technology.name}}</h3>
+            <img style="width: 250px;" src="{{technology.imgUrl}}" alt="photo"/>
+            <div>{{technology.description}}</div>
+            <iframe *ngIf="technology.untrustedVideoUrl" width="400" height="300" 
+              [src]="technology.untrustedVideoUrl" 
+              title="I built the same app 10 times // Which JS Framework is best?" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+    
+            <img *ngIf="technology.imgUrl2" style="width: 250px;" src="{{technology.imgUrl2}}" alt="photo2"/>
+            <div>{{technology.description}}</div>
+            <img *ngIf="technology.gif != null" style="width: 250px;" src="{{technology.gif}}" alt="photo"/>
+            <img *ngIf="technology.gifUrl != null" style="width: 250px;" src="{{technology.gifUrl}}" alt="photo"/>
+    
+            <a (click)="deleteTechnology(technology.id)" class="btn btn-outline-danger" data-mdb-ripple-color="dark">Delete</a>
+            <a (click)="backToHome()" class="btn btn-outline-info" data-mdb-ripple-color="dark">Back</a>
+    </div>
+       
+</div>
+

@@ -2,8 +2,10 @@ import { Component, OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Technology } from '../../technologies/technology.model';
 import { TechnologyService } from '../../technologies/technology.service';
-
+import { Router } from '@angular/router';
 import { DomSanitizer } from "@angular/platform-browser";
+
+import { LoadingService } from 'src/app/core/loading/loadint.service';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +14,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class HomeComponent implements OnInit {
   technologies: Technology[] = [];
-
-  newTechnology: Technology = {
-    name: "Java",
-    imgUrl: "https://www.developer.com/wp-content/uploads/2021/09/Java-tutorials.jpg",
-    videoUrl: "https://www.youtube.com/embed/lHK0eDdiiwo",
-    description: "It’s been more than 25 years since Java was created, but it is still one of the most popular languages for modern software development. The language’s demand stems from the platform being easy to learn with an extensive collection of APIs. With so many development teams still recognizing these benefits and selecting Java, there’s a pressing need for powerful Java review tools. Another free and open source Java code review tool is FindBugs. Also a static analyzer, this tool scans the code to find defects (or “bugs”), inconsistencies, or security threats in suspicious code sections. FindBugs identifies inconsistencies as warnings, allowing the developer the discretion to review the messages to determine whether they need to take corrective action. Developers can action the warning messages in this Java code review tool either individually or in batches. FindBugs requires JRE 1.7.0 or later to run and analyze any version of Java from 1.0 to 1.8.",
-    untrustedVideoUrl: null
-  }
+  loading: boolean = true;
 
   updatedTechnology: Technology = {
     name: "SASS",
@@ -33,14 +28,21 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private service: TechnologyService, 
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit() {
-    //this.createTechnology(this.newTechnology);
     //this.deleteTechnology('-NGgaRQ-fHzCGkEGkcGA');
     //this.updateTechnology('-NGgQT-k-I97qzOMbpdV', this.updatedTechnology);
-    this.getAllTechnologies();
+    //this.service.login('setty_ii@abv.bg', 'y8Xa4jlTVnUNcOUnp16mz9ASJtP2');
+    this.getData();
+  }
+
+  async getData() {
+     await this.service.login('raiders@abv.bg', '123456');
+     await this.getAllTechnologies();
   }
 
   getAllTechnologies() {
@@ -50,14 +52,16 @@ export class HomeComponent implements OnInit {
     ).subscribe(data => {
       this.technologies = data;
       this.technologies
-        .map(d => d['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(d.videoUrl + ''));
-        //console.log(this.technologies[1])
+        .map(d => { 
+          d['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(d.videoUrl + '');
+          if(d.gif !== undefined && d.gif[0] == 'h') {
+            d['gifUrl'] = d.gif;
+            d.gif = null;
+          }
+        });
+      this.loading = false;
+      console.log(this.technologies);
     });
-  }
-
-  createTechnology(tech: Technology) {
-      this.service.create(tech)
-        .then(() => console.log("created new item successfully!"));
   }
 
   deleteTechnology(id: string) {

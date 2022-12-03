@@ -1,40 +1,42 @@
 
 <div class="container-fluid">
-  <!-- <div>
-
-
-  
-
+  <div>
     <i class="fab fa-angular"></i>
     <i class="fab fa-blogger"></i>
     <i class="fas fa-sort-down"></i>
     <i class="fas fa-paper-plane"></i>
     <i class="fas fa-tablet-alt"></i>
-    
-    <div class="form-outline">
-      <input type="text" id="form12" class="form-control" />
-      <label class="form-label" for="form12">Example label</label>
-    </div>
-  </div> -->
-
+  </div>
+  <div *ngIf="loading">
+    <img [src]="loadingService.getUrl()" alt="photo"/>
+  </div>
+  
+  <div *ngIf="loading == false">
     <ul *ngFor="let t of technologies; let i = index">
       <li>
         <h3>Technology: {{ t.name}}</h3>
         <img style="width: 250px;" src="{{t.imgUrl}}" alt="photo"/>
         <div>{{t.description}}</div>
-        <iframe *ngIf="t.untrustedVideoUrl" width="400" height="300" 
+        <!-- <iframe *ngIf="t.untrustedVideoUrl" width="400" height="300" 
           [src]="t.untrustedVideoUrl" 
           title="I built the same app 10 times // Which JS Framework is best?" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
-        </iframe>
+        </iframe> -->
 
-        <img style="width: 250px;" src="{{t.imgUrl2}}" alt="photo"/>
+        <!-- <img style="width: 250px;" src="{{t.imgUrl2}}" alt="photo"/>
         <div>{{t.description}}</div>
-        <img style="width: 250px;" src="{{t.gif}}" alt="photo"/>
+        <img *ngIf="t.gif != null" style="width: 250px;" src="{{t.gif}}" alt="photo"/>
+        <img *ngIf="t.gifUrl != null" style="width: 250px;" src="{{t.gifUrl}}" alt="photo"/> -->
+
+        <a routerLink="/technology/detailsTechnology/{{t.id}}" class="btn btn-outline-info" data-mdb-ripple-color="dark">More</a>
       </li>
     </ul>
+  </div>
+   
+
+
 </div>
 
 

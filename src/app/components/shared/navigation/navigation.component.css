@@ -60,9 +60,8 @@
   transition: all 0.4s ease-out;
 }
 .navigation .input-search:focus {
-  outline: 0 none !important;
+  outline: none !important;
   color: rgb(173, 34, 22);
-  border-bottom: 1px solid rgb(173, 34, 22);
   border: 1px solid rgb(173, 34, 22);
   background-color: transparent;
   box-shadow: 0 0px 0px rgb(173, 34, 22) inset, 0 0 0px rgb(173, 34, 22) !important;
