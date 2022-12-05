@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({ providedIn: 'root'})
 export class LoadingService {
   visibility: BehaviorSubject<boolean>;
-  loadingUrl: string = '../../../../assets/image/loading-animated-gif_56.gif';
+  loadingUrl: string = '../../../../assets/images/loading-animated-gif_56.gif';
 
   constructor() {
     this.visibility = new BehaviorSubject(false);

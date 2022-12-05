@@ -1,106 +1,120 @@
 <div class="container-create-technology">
     <h2 class="title-create-technology">Create Technology Form</h2>
     <div class="note-container">
-        <div class="font-italic"><b>Note!</b> Image Url must be is - https://...png, jpg or jpeg!</div>
-        <div class="font-italic">Gif must be file downloded local gif format! example.gif</div>
-        <div class="font-italic">Video Url must be is - https://www.youtube.com/embed/IQr3fF9fgFY! (example)</div>
+        <div class="font-italic text-break"><b>Note!</b> Image Url must be is - https://...png, jpg or jpeg!</div>
+        <div class="font-italic text-break">Gif must be file downloded local gif format! example.gif</div>
+        <div class="font-italic text-break">Video Url must be is - https://www.youtube.com/embed/IQr3fF9fgFY! (example)</div>
     </div>
-    <div class="container-form">
+    <div class="container-form col-11 col-xs-11 col-md-11 col-xl-8">
         <form [formGroup]="technologyForm" (ngSubmit)="createTechnology()">
-            <div class="form-group">
-                <input type="text" formControlName="name" id="name" class="input-group" 
-                    (focus)="isFocusName = true" 
-                    (click)="isFocusName = true"
-                    (blur)="technologyForm.get('name').value == '' ? isFocusName = false : isFocusName = true"
-                />
-                <label [ngStyle]="isFocusName 
-                    ? {transform: 'translateY(-33px)'} 
-                    : {transform: 'translateY(0px)'}" class="label" for="name"
-                >Name</label>
+            <h3 class="text-center">Form</h3>
+            <div class="d-flex flex-row flex-wrap">
 
-                <div *ngIf="technologyForm.get('name').touched" class="text-danger">
-                    <div *ngIf="!!technologyForm.get('name').errors?.required">Name is required!</div>
-                    <div *ngIf="!!technologyForm.get('name').errors?.minlength">Name must be least 3 symbols!</div>
-                    <div *ngIf="!!technologyForm.get('name').errors?.pattern">Invalid symbols!</div>
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="name" id="name" class="input-group" 
+                        (focus)="isFocusName = true" 
+                        (click)="isFocusName = true"
+                        (blur)="technologyForm.get('name').value == '' ? isFocusName = false : isFocusName = true"
+                        
+                    />
+
+                    <label [ngStyle]="isFocusName ? {transform: 'translateY(-38px)'} : {transform: 'translateY(0px)'}" class="label" for="name"
+                    >Name</label>
+                    <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('name').errors == false"></i>
+    
+                    <div *ngIf="technologyForm.get('name').touched" class="text-danger">
+                        <div *ngIf="!!technologyForm.get('name').errors?.required">Name is required!</div>
+                        <div *ngIf="!!technologyForm.get('name').errors?.minlength">Name must be least 3 symbols!</div>
+                        <div *ngIf="!!technologyForm.get('name').errors?.pattern">Invalid symbols!</div>
+                    </div>
+                </div>
+    
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="imgUrl" id="ImgUrl" class="input-group" 
+                        (click)="isFocusImgUrl = true"
+                        (focus)="isFocusImgUrl = true" 
+                        (blur)="technologyForm.get('imgUrl').value == '' ? isFocusImgUrl = false : isFocusImgUrl = true"
+                    />
+                    <label [ngStyle]="isFocusImgUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="ImgUrl">Image Url</label>
+                    <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('imgUrl').errors == false"></i>
+    
+                    <div *ngIf="technologyForm.get('imgUrl').touched" class="text-danger">
+                        <div *ngIf="!!technologyForm.get('imgUrl').errors?.required">Image Url is required!</div>
+                        <div *ngIf="!!technologyForm.get('imgUrl').errors?.pattern">Invalid Image Url!</div>
+                    </div>
+                </div>
+    
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="imgUrl2" id="ImgUrl2" class="input-group" 
+                        (click)="isFocusImgUrl2 = true"
+                        (focus)="isFocusImgUrl2 = true" 
+                        (blur)="technologyForm.get('imgUrl2').value == '' ? isFocusImgUrl2 = false : isFocusImgUrl2 = true"
+                    />
+                    <label [ngStyle]="isFocusImgUrl2 ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="ImgUrl">Image Url 2</label>
+                    <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('imgUrl2').errors == false"></i>
+    
+                    <div *ngIf="technologyForm.get('imgUrl2').touched" class="text-danger">
+                        <div *ngIf="!!technologyForm.get('imgUrl2').errors?.required">Second Image Url is required!</div>
+                        <div *ngIf="!!technologyForm.get('imgUrl2').errors?.pattern">Invalid second Image Url!</div>
+                    </div>
+                </div>
+    
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="gifUrl" id="Gif" class="input-group" 
+                        (click)="isFocusGifUrl = true"
+                        (focus)="isFocusGifUrl = true" 
+                        (blur)="technologyForm.get('gifUrl').value == '' ? isFocusGifUrl = false : isFocusGifUrl = true"
+                    />
+                    <label [ngStyle]="isFocusGifUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="Gif">Gif Url</label>
+                    <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('gifUrl').errors == false"></i>
+    
+                    <div *ngIf="technologyForm.get('gifUrl').touched" class="text-danger">
+                        <div *ngIf="!!technologyForm.get('gifUrl').errors?.required">Gif Url is required!</div>
+                        <div *ngIf="!!technologyForm.get('gifUrl').errors?.pattern">Invalid gif Url!</div>
+                    </div>
+                </div>
+    
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="videoUrl" id="videoUrl" class="input-group" 
+                        (click)="isFocusVideoUrl = true"
+                        (focus)="isFocusVideoUrl = true" 
+                        (blur)="technologyForm.get('videoUrl').value == '' ? isFocusVideoUrl = false : isFocusVideoUrl = true"
+                    />
+                    <label [ngStyle]="isFocusVideoUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="videoUrl">Video Url</label>
+                    <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('videoUrl').errors == false"></i>
+    
+                    <div *ngIf="technologyForm.get('videoUrl').touched" class="text-danger">
+                        <div *ngIf="!!technologyForm.get('videoUrl').errors?.required">Video Url is required!</div>
+                        <div *ngIf="!!technologyForm.get('videoUrl').errors?.pattern">Invalid video Url!</div>
+                    </div>
+                </div>
+    
+                <div class="form-group col-12 col-md-6">
+                    <textarea type="text" 
+                        formControlName="description" 
+                        class="input-group" 
+                        id="Description" 
+                        rows="8"
+                        (click)="isFocusDescription = true"
+                        (focus)="isFocusDescription = true" 
+                        (blur)="technologyForm.get('description').value == '' ? isFocusDescription = false : isFocusDescription = true"
+                        [ngStyle]=""
+                    ></textarea>
+                    <label class="label" for="Description" [ngStyle]="isFocusDescription ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}">Description</label>
+                    <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('description').errors == false"></i>
+    
+                    <div *ngIf="technologyForm.get('description').touched" class="text-danger">
+                        <div *ngIf="!!technologyForm.get('description').errors?.required">Description is required!</div>
+                        <div *ngIf="!!technologyForm.get('description').errors?.minlength">Description must be min 100 caracters!</div>
+                        <div *ngIf="!!technologyForm.get('description').errors?.maxlength">Description must be max 5000 caracters!</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <button type="submit" class="btn-create ripple ml-3 mb-2" data-mdb-ripple-color="light">Create</button>
                 </div>
             </div>
-
-            <div class="form-group">
-                <input type="text" formControlName="imgUrl" id="ImgUrl" class="input-group" 
-                    (click)="isFocusImgUrl = true"
-                    (focus)="isFocusImgUrl = true" 
-                    (blur)="technologyForm.get('imgUrl').value == '' ? isFocusImgUrl = false : isFocusImgUrl = true"
-                />
-                <label [ngStyle]="isFocusImgUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="ImgUrl">Image Url</label>
-
-                <div *ngIf="technologyForm.get('imgUrl').touched" class="text-danger">
-                    <div *ngIf="!!technologyForm.get('imgUrl').errors?.required">Image Url is required!</div>
-                    <div *ngIf="!!technologyForm.get('imgUrl').errors?.pattern">Invalid Image Url!</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <input type="text" formControlName="imgUrl2" id="ImgUrl2" class="input-group" 
-                    (click)="isFocusImgUrl2 = true"
-                    (focus)="isFocusImgUrl2 = true" 
-                    (blur)="technologyForm.get('imgUrl2').value == '' ? isFocusImgUrl2 = false : isFocusImgUrl2 = true"
-                />
-                <label [ngStyle]="isFocusImgUrl2 ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="ImgUrl">Image Url 2</label>
-
-                <div *ngIf="technologyForm.get('imgUrl2').touched" class="text-danger">
-                    <div *ngIf="!!technologyForm.get('imgUrl2').errors?.required">Second Image Url is required!</div>
-                    <div *ngIf="!!technologyForm.get('imgUrl2').errors?.pattern">Invalid second Image Url!</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <input type="text" formControlName="gifUrl" id="Gif" class="input-group" 
-                    (click)="isFocusGifUrl = true"
-                    (focus)="isFocusGifUrl = true" 
-                    (blur)="technologyForm.get('gifUrl').value == '' ? isFocusGifUrl = false : isFocusGifUrl = true"
-                />
-                <label [ngStyle]="isFocusGifUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="Gif">Gif Url</label>
-
-                <div *ngIf="technologyForm.get('gifUrl').touched" class="text-danger">
-                    <div *ngIf="!!technologyForm.get('gifUrl').errors?.required">Gif Url is required!</div>
-                    <div *ngIf="!!technologyForm.get('gifUrl').errors?.pattern">Invalid gif Url!</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <input type="text" formControlName="videoUrl" id="videoUrl" class="input-group" 
-                    (click)="isFocusVideoUrl = true"
-                    (focus)="isFocusVideoUrl = true" 
-                    (blur)="technologyForm.get('videoUrl').value == '' ? isFocusVideoUrl = false : isFocusVideoUrl = true"
-                />
-                <label [ngStyle]="isFocusVideoUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="videoUrl">Video Url</label>
-
-                <div *ngIf="technologyForm.get('videoUrl').touched" class="text-danger">
-                    <div *ngIf="!!technologyForm.get('videoUrl').errors?.required">Video Url is required!</div>
-                    <div *ngIf="!!technologyForm.get('videoUrl').errors?.pattern">Invalid video Url!</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <textarea type="text" 
-                    formControlName="description" 
-                    class="input-group" 
-                    id="Description" 
-                    rows="8"
-                    (click)="isFocusDescription = true"
-                    (focus)="isFocusDescription = true" 
-                    (blur)="technologyForm.get('description').value == '' ? isFocusDescription = false : isFocusDescription = true"
-                ></textarea>
-                <label class="label" for="Description" [ngStyle]="isFocusDescription ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}">Description</label>
-
-                <div *ngIf="technologyForm.get('description').touched" class="text-danger">
-                    <div *ngIf="!!technologyForm.get('description').errors?.required">Description is required!</div>
-                    <div *ngIf="!!technologyForm.get('description').errors?.minlength">Description must be min 100 caracters!</div>
-                    <div *ngIf="!!technologyForm.get('description').errors?.maxlength">Description must be max 5000 caracters!</div>
-                </div>
-            </div>
-
-            <button type="submit" class="btn-create ripple" data-mdb-ripple-color="light">Create</button>
+           
         </form>
     </div>
 </div>

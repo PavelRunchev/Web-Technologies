@@ -1,20 +1,24 @@
-// Font Awesome
+// Font Awesome Icons
 @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
 
+//IT CSS Architecture
+@import './assets/sass/Generic/_generic.reset';
+
+@import './assets/sass/Settings/_settings.font';
+@import './assets/sass/Settings/_settings.color';
+@import './assets/sass/Settings/_settings.breakpoints';
+
+@import './assets/sass/Tools/_tools.mixins';
 
 
-*, *:before, *:after {
-    box-sizing: border-box;
-}
- 
-body, main {
-    padding: 0px !important;
-    margin: 0px !important;
-}
+@import './assets/sass/Components/_component.navigation';
+@import './assets/sass/Components/_component.header';
+@import './assets/sass/Components/_component.createTechnology';
 
-*:focus {
-    outline: none !important;
-}
+
+
+
+

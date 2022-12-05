@@ -24,7 +24,7 @@ export class TechnologyService {
 
   login(email: string, password: string) {
     this.auth.signInWithEmailAndPassword(email, password)
-      .then((data) => {
+      .then((user) => {
         localStorage.setItem('token', 'true');
       }, err => console.log(err));
   }

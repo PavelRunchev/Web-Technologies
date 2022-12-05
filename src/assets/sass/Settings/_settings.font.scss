@@ -1,0 +1,42 @@
+
+//import font Roboto 400
+@font-face {
+	font-family: 'Roboto';
+	src: url('../../fonts/roboto/Roboto-Regular.eot') format('embedded-opentype');
+	src: url('../../fonts/roboto/Roboto-Regular.ttf') format('truetype');
+	src: url('../../fonts/roboto/Roboto-Regular.woff') format('woff');
+	src: url('../../fonts/roboto/Roboto-Regular.woff2') format('woff2');
+	font-display: swap;
+}
+
+//import font Heebo 400
+@font-face {
+	font-family: 'Heebo';
+	src: url('../../fonts/heebo/Heebo-Regular.eot') format('embedded-opentype');
+	src: url('../../fonts/heebo/Heebo-Regular.ttf') format('truetype');
+	src: url('../../fonts/heebo/Heebo-Regular.woff') format('woff');
+	src: url('../../fonts/heebo/Heebo-Regular.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../../fonts/open-sans/OpenSans-Regular.eot') format('embedded-opentype');
+	src: url('../../fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
+	src: url('../../fonts/open-sans/OpenSans-Regular.woff') format('woff');
+	src: url('../../fonts/open-sans/OpenSans-Regular.woff2') format('woff2');
+	font-display: swap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Heebo', 'Open Sans';
+}
+
+body, a, button {
+	font-family: 'Roboto', sans-serif;
+}
+
+div, p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}

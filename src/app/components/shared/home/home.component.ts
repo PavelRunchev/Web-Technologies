@@ -7,6 +7,8 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 import { LoadingService } from 'src/app/core/loading/loadint.service';
 
+import { AngularFireAuth,  } from '@angular/fire/compat/auth';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -30,7 +32,8 @@ export class HomeComponent implements OnInit {
     private service: TechnologyService, 
     private sanitizer: DomSanitizer,
     private router: Router,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private auth: AngularFireAuth,
   ) { }
 
   ngOnInit() {
@@ -40,9 +43,13 @@ export class HomeComponent implements OnInit {
     this.getData();
   }
 
-  async getData() {
-     await this.service.login('raiders@abv.bg', '123456');
-     await this.getAllTechnologies();
+  getData() {
+    this.auth.signInWithEmailAndPassword('raiders@abv.bg', '123456')
+    .then((user) => {
+      localStorage.setItem('token', 'true');
+      console.log(user);
+      this.getAllTechnologies();
+    }, err => console.log(err));
   }
 
   getAllTechnologies() {
