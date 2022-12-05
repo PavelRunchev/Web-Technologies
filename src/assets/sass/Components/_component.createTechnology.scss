@@ -42,7 +42,7 @@
 
             &:focus {
                 outline: none !important;
-                color: $color-thirdly;
+                color: $color-primary;
                 border: 1px solid $color-thirdly;
                 background-color: transparent;
                 box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;
@@ -60,6 +60,10 @@
             position: absolute;
             right: 25px;
             top: 26px;
+        }
+
+        .text-errors {
+            color: $color-thirdly;
         }
 
         .btn-create {

@@ -50,8 +50,6 @@
             font-size: 16px;
         }
 
-        
-
         &:hover {
             color: $color-thirdly;
         }
@@ -61,7 +59,20 @@
         }
     }
 
-    .under-line {
+    #navbarDropdown {
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            color: $color-thirdly;
+        }
+
+        &:hover ~ .under-line-dropdown {
+            width: 105px;
+        }
+    }
+
+    .under-line,
+    .under-line-dropdown {
         display: block;
         position: absolute;
         top: 38px;
@@ -70,6 +81,14 @@
         height: 2px;
         background-color: $color-thirdly;
         transition: all 0.4s ease-out;
+    }
+
+    .dropdown-item {
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: $background-primary !important;
+        }
     }
 
     //*
@@ -94,7 +113,7 @@
 
         &:focus {
             outline: none !important;
-            color: $color-thirdly;
+            color: $color-primary;
             border: 1px solid $color-thirdly;
             background-color: transparent;
             box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;

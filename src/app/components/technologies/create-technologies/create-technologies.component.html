@@ -22,7 +22,7 @@
                     >Name</label>
                     <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('name').errors == false"></i>
     
-                    <div *ngIf="technologyForm.get('name').touched" class="text-danger">
+                    <div *ngIf="technologyForm.get('name').touched" class="text-errors">
                         <div *ngIf="!!technologyForm.get('name').errors?.required">Name is required!</div>
                         <div *ngIf="!!technologyForm.get('name').errors?.minlength">Name must be least 3 symbols!</div>
                         <div *ngIf="!!technologyForm.get('name').errors?.pattern">Invalid symbols!</div>
@@ -38,7 +38,7 @@
                     <label [ngStyle]="isFocusImgUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="ImgUrl">Image Url</label>
                     <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('imgUrl').errors == false"></i>
     
-                    <div *ngIf="technologyForm.get('imgUrl').touched" class="text-danger">
+                    <div *ngIf="technologyForm.get('imgUrl').touched" class="text-errors">
                         <div *ngIf="!!technologyForm.get('imgUrl').errors?.required">Image Url is required!</div>
                         <div *ngIf="!!technologyForm.get('imgUrl').errors?.pattern">Invalid Image Url!</div>
                     </div>
@@ -53,7 +53,7 @@
                     <label [ngStyle]="isFocusImgUrl2 ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="ImgUrl">Image Url 2</label>
                     <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('imgUrl2').errors == false"></i>
     
-                    <div *ngIf="technologyForm.get('imgUrl2').touched" class="text-danger">
+                    <div *ngIf="technologyForm.get('imgUrl2').touched" class="text-errors">
                         <div *ngIf="!!technologyForm.get('imgUrl2').errors?.required">Second Image Url is required!</div>
                         <div *ngIf="!!technologyForm.get('imgUrl2').errors?.pattern">Invalid second Image Url!</div>
                     </div>
@@ -68,7 +68,7 @@
                     <label [ngStyle]="isFocusGifUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="Gif">Gif Url</label>
                     <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('gifUrl').errors == false"></i>
     
-                    <div *ngIf="technologyForm.get('gifUrl').touched" class="text-danger">
+                    <div *ngIf="technologyForm.get('gifUrl').touched" class="text-errors">
                         <div *ngIf="!!technologyForm.get('gifUrl').errors?.required">Gif Url is required!</div>
                         <div *ngIf="!!technologyForm.get('gifUrl').errors?.pattern">Invalid gif Url!</div>
                     </div>
@@ -83,7 +83,7 @@
                     <label [ngStyle]="isFocusVideoUrl ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}" class="label" for="videoUrl">Video Url</label>
                     <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('videoUrl').errors == false"></i>
     
-                    <div *ngIf="technologyForm.get('videoUrl').touched" class="text-danger">
+                    <div *ngIf="technologyForm.get('videoUrl').touched" class="text-errors">
                         <div *ngIf="!!technologyForm.get('videoUrl').errors?.required">Video Url is required!</div>
                         <div *ngIf="!!technologyForm.get('videoUrl').errors?.pattern">Invalid video Url!</div>
                     </div>
@@ -103,7 +103,7 @@
                     <label class="label" for="Description" [ngStyle]="isFocusDescription ? {transform: 'translateY(-33px)'} : {transform: 'translateY(0px)'}">Description</label>
                     <i class="fa-solid fa-check" *ngIf="!!technologyForm.get('description').errors == false"></i>
     
-                    <div *ngIf="technologyForm.get('description').touched" class="text-danger">
+                    <div *ngIf="technologyForm.get('description').touched" class="text-errors">
                         <div *ngIf="!!technologyForm.get('description').errors?.required">Description is required!</div>
                         <div *ngIf="!!technologyForm.get('description').errors?.minlength">Description must be min 100 caracters!</div>
                         <div *ngIf="!!technologyForm.get('description').errors?.maxlength">Description must be max 5000 caracters!</div>
