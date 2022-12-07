@@ -1,4 +1,4 @@
-export interface Technology {
+export interface TechnologyModel {
   id?: string | null,
   name?: string | null,
   imgUrl?: string | null,

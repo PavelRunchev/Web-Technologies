@@ -1,12 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Technology } from '../../technologies/technology.model';
+import { TechnologyModel } from '../../technologies/technology.model';
 import { TechnologyService } from '../../technologies/technology.service';
-import { Router } from '@angular/router';
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { LoadingService } from 'src/app/core/loading/loadint.service';
-
 import { AngularFireAuth,  } from '@angular/fire/compat/auth';
 
 @Component({
@@ -15,10 +13,10 @@ import { AngularFireAuth,  } from '@angular/fire/compat/auth';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  technologies: Technology[] = [];
+  technologies: TechnologyModel[] = [];
   loading: boolean = true;
 
-  updatedTechnology: Technology = {
+  updatedTechnology: TechnologyModel = {
     name: "SASS",
     imgUrl: "https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/sass.jpg",
     imgUrl2: "https://res.cloudinary.com/practicaldev/image/fetch/s--N5peVEVC--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/t0d6457k6jo5a8metzfi.png",
@@ -31,7 +29,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private service: TechnologyService, 
     private sanitizer: DomSanitizer,
-    private router: Router,
     private loadingService: LoadingService,
     private auth: AngularFireAuth,
   ) { }
@@ -45,9 +42,8 @@ export class HomeComponent implements OnInit {
 
   getData() {
     this.auth.signInWithEmailAndPassword('raiders@abv.bg', '123456')
-    .then((user) => {
+    .then(() => {
       localStorage.setItem('token', 'true');
-      console.log(user);
       this.getAllTechnologies();
     }, err => console.log(err));
   }
@@ -67,22 +63,6 @@ export class HomeComponent implements OnInit {
           }
         });
       this.loading = false;
-      console.log(this.technologies);
     });
-  }
-
-  deleteTechnology(id: string) {
-    this.service.delete(id).then(() => console.log('The technology was deleted successfully!'));
-    this.refreshList();
-  }
-
-  updateTechnology(id: string, tech: Technology) {
-    this.service.update(id, tech).then(() => console.log('The technology was updated successfully!'));
-    this.refreshList();
-  }
-
-  refreshList(): void {
-    this.technologies = [];
-    this.getAllTechnologies();
   }
 }

@@ -9,10 +9,10 @@
     justify-content: center;
     align-items: center;
     padding: 5% 0%;
-    background-color: $background-primary;
+    background-color: $color-fourthly;
 
     .container-form {
-        background-color: rgb(255, 255, 255);
+        background-color: $background-primary;
         border-radius: 5px;
         margin: 3% 0;
         padding: 2%;
@@ -31,20 +31,21 @@
 
         input[type="text"], textarea {
             outline: none !important;
-            background-color: $background-primary;
+            background-color: $color-fourthly;
             color: $color-primary;
             border: 1px solid $background-secondary;
             border-radius: 3px;
             margin: 15px 0;
             @include input-shadow;
             padding: 0.67em 0.75em;
+            overflow-wrap: break-word;
+            overflow: hidden;
             transition: all 0.3s ease-out;
 
             &:focus {
                 outline: none !important;
                 color: $color-primary;
                 border: 1px solid $color-thirdly;
-                background-color: transparent;
                 box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;
             }
 
@@ -58,8 +59,10 @@
             color: rgb(0, 133, 63);
             font-size: 18px;
             position: absolute;
-            right: 25px;
-            top: 26px;
+            right: 20px;
+            top: 22px;
+            background-color: $color-fourthly;
+            padding: 5px;
         }
 
         .text-errors {
@@ -67,16 +70,14 @@
         }
 
         .btn-create {
-            cursor: pointer !important;
-            border: 1px solid $color-thirdly;
-            font-weight: normal;
-            padding: 10px 40px;
-            border-radius: 3px;
-            color: $color-thirdly;
-            @include btn-shadow;
-            transition: all 0.3s ease-out;
+            @include btn-global($color-thirdly, $color-fourthly, $color-thirdly);
 
-            &:hover {
+            &:disabled {
+                cursor:default;
+                opacity: 0.5;
+            }
+
+            &:not([disabled]):hover {
                 color: $color-fourthly;
                 background-color: $color-thirdly;
                 @include btn-shadow-hover;

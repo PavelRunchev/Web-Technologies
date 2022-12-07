@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { TechnologyService } from '../technology.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Technology } from './../technology.model';
+import { TechnologyModel } from './../technology.model';
 import { ToastrService } from '../../../core/toastr/toastr.service';
 import { LoadingService } from 'src/app/core/loading/loadint.service';
 import { DomSanitizer } from "@angular/platform-browser";
@@ -13,7 +13,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ['./technology-id.component.scss']
 })
 export class TechnologyIDComponent implements OnInit {
-  technology: Technology = {};
+  technology: TechnologyModel = {};
   loading: boolean = true;
   id: string = '';
 
@@ -63,5 +63,9 @@ export class TechnologyIDComponent implements OnInit {
 
   backToHome() {
     this.route.navigate(['/home']);
+  }
+
+  updateTechnology(id: string, tech: TechnologyModel) {
+    this.service.update(id, tech).then(() => console.log('The technology was updated successfully!'));
   }
 }

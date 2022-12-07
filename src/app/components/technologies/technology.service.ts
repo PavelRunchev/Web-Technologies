@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFireAuth,  } from '@angular/fire/compat/auth';
 
-import { Technology } from './technology.model';
+import { TechnologyModel } from './technology.model';
 
 //import 'firebase/compat/auth';
 //import 'firebase/compat/firestore';
@@ -12,7 +12,7 @@ import { Technology } from './technology.model';
 })
 export class TechnologyService {
   private dbPath = '/Technologies';
-  dbTechnologies: AngularFireList<Technology>;
+  dbTechnologies: AngularFireList<TechnologyModel>;
 
   constructor(
     private db: AngularFireDatabase, 
@@ -37,11 +37,11 @@ export class TechnologyService {
       }, err => console.log(err));
   }
 
-  getAll(): AngularFireList<Technology> {
+  getAll(): AngularFireList<TechnologyModel> {
     return this.dbTechnologies;
   }
 
-  create(tutorial: Technology): any {
+  create(tutorial: TechnologyModel): any {
     return this.dbTechnologies.push(tutorial);
   }
 

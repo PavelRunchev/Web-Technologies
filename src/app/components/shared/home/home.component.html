@@ -1,15 +1,18 @@
 
-<div class="container-fluid">
-  <div *ngIf="loading">
-    <img [src]="loadingService.getUrl()" alt="photo"/>
+<div class="container-fluid py-5 px-0">
+    <h3 class="text-center my-5 text-decoration-underline text-bold h2 ">Presents all JS Web Technologies</h3>
+  <div *ngIf="loading" class="container m-auto container-loading d-flex justify-content-center my-5">
+    <img [src]="loadingService.getUrl()" alt="photo" class="loading-image"/>
   </div>
   
-  <div *ngIf="loading == false">
-    <ul *ngFor="let t of technologies; let i = index">
-      <li>
-        <h3>Technology: {{ t.name}}</h3>
-        <img style="width: 250px;" src="{{t.imgUrl}}" alt="photo"/>
-        <div>{{t.description}}</div>
+  <div *ngIf="loading == false" class="container container-all-technologies col-11 col-sx-10 col-md-9 col-lg-8 col-xl-7">
+    <div *ngFor="let t of technologies; let i = index">
+      <section class="container-fluid border-bottom border-dark my-5">
+        
+        <img class="technology-img d-block col-11 col-md-6 float-md-left" src="{{t.imgUrl}}" alt="photo"/>
+        <h3>Technology: <span class="font-weight-bold text-technology-name">{{ t.name}}</span></h3>
+        <div class="mb-5">{{t.description}}</div>
+        
         <!-- <iframe *ngIf="t.untrustedVideoUrl" width="400" height="300" 
           [src]="t.untrustedVideoUrl" 
           title="I built the same app 10 times // Which JS Framework is best?" 
@@ -23,9 +26,12 @@
         <img *ngIf="t.gif != null" style="width: 250px;" src="{{t.gif}}" alt="photo"/>
         <img *ngIf="t.gifUrl != null" style="width: 250px;" src="{{t.gifUrl}}" alt="photo"/> -->
 
-        <a routerLink="/technology/detailsTechnology/{{t.id}}" class="btn btn-outline-info" data-mdb-ripple-color="dark">More</a>
-      </li>
-    </ul>
+        <div class="d-flex justify-content-center justify-content-md-end">
+          <a routerLink="/technology/detailsTechnology/{{t.id}}" class="btn-more mr-md-4" data-mdb-ripple-color="dark">Details</a>
+        </div>
+        
+      </section>
+    </div>
   </div>
    
 
