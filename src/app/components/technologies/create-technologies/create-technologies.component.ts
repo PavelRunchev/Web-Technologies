@@ -8,8 +8,7 @@ import { ToastrService } from '../../../core/toastr/toastr.service';
 
 @Component({
   selector: 'app-create-technologies',
-  templateUrl: './create-technologies.component.html',
-  styleUrls: ['./create-technologies.component.scss']
+  templateUrl: './create-technologies.component.html'
 })
 export class CreateTechnologiesComponent implements OnInit {
   isFocusName: boolean = false;

@@ -1,41 +1,73 @@
 
 <div class="container-fluid py-5 px-0">
-    <h3 class="text-center my-5 text-decoration-underline text-bold h2 ">Presents all JS Web Technologies</h3>
-  <div *ngIf="loading" class="container m-auto container-loading d-flex justify-content-center my-5">
-    <img [src]="loadingService.getUrl()" alt="photo" class="loading-image"/>
-  </div>
+  <div class="container col-11 col-sx-11 col-sm-11 col-md-8 col-lg-8 col-xl-6">
+    <h3 class="font-weight-bold">What is Web Technology?</h3>
+    <img class="global-left-img col-12 col-lg-6 ripple"  src="https://img.youtube.com/vi/FFcZ8MVYqRs/0.jpg" data-mdb-ripple-color="light" alt="photo"/>
+    <p>Web development comes with a huge set of rules and techniques every website developer should know about. If you want a website to look and function as you wish them to, you need to get familiar with web technologies that will help you achieve your goal.</p>
+    <p>Developing an app or a website typically comes down to knowing 3 main languages: <span class="highlighting">JavaScript</span>, <span class="highlighting">CSS</span>, and <span class="highlighting">HTML</span>. And while it sounds quite complicated, once you know what you are doing, understanding web technology and the way it works becomes significantly easier.</p>
+    <p>Fret not if it is not coming easily to you immediately. You may need more time, training, and patience to dive deeper into the subject, but you’ll end up with a good understanding eventually.</p>
+    <p>We present you with an introduction to web technologies and the latest web technologies list hoping it will make things at least a bit easier for you. Now, let’s take a look.</p>
+    <p>You have probably heard the term “web development technologies” before, but did you ever think about what it actually means?</p>
+    <p>Since computers can’t communicate with each other the way people do, they require codes instead. Web technologies are the markup languages such as <span class="highlighting">HTML</span>, <span class="highlighting">XML</span>, and <span class="highlighting">XHTML</span> and multimedia packages computers use to communicate.</p>
+
+    <h3 class="font-weight-bold">Browsers</h3>
+    <img class="global-right-img col-12 col-lg-6 ripple"  src="https://www.macworld.com/wp-content/uploads/2022/04/best_mac_browser_main.jpg?resize=1200%2C675&quality=50&strip=all" data-mdb-ripple-color="light" alt="photo"/>
+    <p>Browsers request information and then they show us in the way we can understand. Think of them as the interpreters of the web. Here are the most popular ones:</p>
+    <p><span class="highlighting">Google Chrome</span> – Currently, the most popular browser brought to you by Google</p>
+    <p><span class="highlighting">Safari</span> – Apple’s web browser</p>
+    <p><span class="highlighting">Firefox</span> – Open-source browser supported by the Mozilla Foundation</p>
+    <p><span class="highlighting">Internet Explorer</span> – Microsoft’s browser</p>
+
+    <h3 class="font-weight-bold">HTML & CSS</h3>
+    <p><span class="highlighting">HTML</span> is one of the first you should learn. Thanks to HTML, the web browsers know what to show once they receive the request. If you want to better understand how HTML works, you also need to know what CSS is.</p>
+    <p><span class="highlighting">CSS</span> stands for Cascading Style Sheets and it describes how HTML elements are to be displayed on the screen. If you browse enough tutorials, you’ll soon create <span class="highlighting">CSS text effects</span>, <span class="highlighting">page transitions</span>, <span class="highlighting">image hover effects</span>, and more. </p>
+    <p>If you’re a complete beginner, this Essential HTML & CSS training by <span class="highlighting">James Williamson</span> will help you to quickly get started with these technologies.</p>
+
+    <h3 class="font-weight-bold">Programming Languages</h3>
+    <img class="global-left-img col-12 col-lg-6 ripple"  src="https://media.istockphoto.com/id/1226444511/vector/mobile-website-development-technology-conceptual-illustration-design-of-internet-pages-of.jpg?s=612x612&w=0&k=20&c=pygvwNzpyOHXIQtJsD_fFY2S0Trylw_hy9Kq-MVRdUo=" data-mdb-ripple-color="light" alt="photo"/>
+    <p>As we explained before, since computers don’t use languages that are anything like human languages, they need a different way to communicate. Here are some of the most popular programming languages:</p>
+    <p><span class="highlighting">Javascript</span> – used by all web browsers, Angular, React, VueJS, Meteor, and lots of other frameworks</p>
+    <p><span class="highlighting">Python</span> – used by the Django framework as well as in the majority of mathematical calculations</p>
+    <p><span class="highlighting">Ruby</span> – used by the Ruby on Rails framework</p>
+    <p><span class="highlighting">PHP</span> – used by WordPress to create those WYSIWYG editors that everyone is using now. It’s also used by Facebook, Wikipedia, and other major sites</p>
+    <p><span class="highlighting">Java</span> – used by Android and a lot of desktop applications.</p>
+    
+    <h3 class="font-weight-bold">Protocols</h3>
+    <p>The instructions for how to pass information back and forth between computers and devices are commonly known as protocols.</p>
+    <h4 class="h4-high-lighting">HTTP</h4>
+    <p>Thanks to this protocol, each website can get to the browser. The protocol requests the website from Google’s server and then receives a response with the HTML, CSS, and JavaScript of the website.</p>
+    <h4 class="h4-high-lighting">HTTPS</h4>
+    <p>Hypertext transfer protocol secure (HTTPS) is the secure version of HTTP, which is the primary protocol used to send data between a web browser and a website. HTTPS is encrypted in order to increase security of data transfer. This is particularly important when users transmit sensitive data, such as by logging into a bank account, email service, or health insurance provider.</p>
   
-  <div *ngIf="loading == false" class="container container-all-technologies col-11 col-sx-10 col-md-9 col-lg-8 col-xl-7">
-    <div *ngFor="let t of technologies; let i = index">
-      <section class="container-fluid border-bottom border-dark my-5">
-        
-        <img class="technology-img d-block col-11 col-md-6 float-md-left" src="{{t.imgUrl}}" alt="photo"/>
-        <h3>Technology: <span class="font-weight-bold text-technology-name">{{ t.name}}</span></h3>
-        <div class="mb-5">{{t.description}}</div>
-        
-        <!-- <iframe *ngIf="t.untrustedVideoUrl" width="400" height="300" 
-          [src]="t.untrustedVideoUrl" 
-          title="I built the same app 10 times // Which JS Framework is best?" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe> -->
-
-        <!-- <img style="width: 250px;" src="{{t.imgUrl2}}" alt="photo"/>
-        <div>{{t.description}}</div>
-        <img *ngIf="t.gif != null" style="width: 250px;" src="{{t.gif}}" alt="photo"/>
-        <img *ngIf="t.gifUrl != null" style="width: 250px;" src="{{t.gifUrl}}" alt="photo"/> -->
-
-        <div class="d-flex justify-content-center justify-content-md-end">
-          <a routerLink="/technology/detailsTechnology/{{t.id}}" class="btn-more mr-md-4" data-mdb-ripple-color="dark">Details</a>
-        </div>
-        
-      </section>
-    </div>
+    <h4 class="h4-high-lighting">DDP</h4>
+    <p>Uses WebSockets to create a consistent connection between the client and the server. As a result of that, you get website updates in real-time without having to refresh the browser.</p>
+    <h4 class="h4-high-lighting">REST</h4>
+    <img class="global-right-img col-12 col-lg-6 ripple"  src="https://lh4.googleusercontent.com/Zv4J7Q_I0IRh-fKMcjAoMmftla_WVixPONmEpXCBnG3sxuf-cHmTv47GIvUXzsjW8UAXN86n0CF5Es-YSxo8mNiXaXncufkYvyyoVGtHbk2-P0Nic05lWkS9TkeJDbxdT88HMfTkMVdITVpL3OHsqyCvyI0U6yxls-gMfWizhOvB2ZzYEjlPVailvA" data-mdb-ripple-color="light" alt="photo"/>
+    <p>Used mostly for API’s, this protocol has standard methods like <span class="highlighting">GET</span>, <span class="highlighting">POST</span>, <span class="highlighting">PUT</span>, <span class="highlighting">PATCH</span>, <span class="highlighting">OPTIONS</span>, and <span class="highlighting">DELETE</span> that let information be exchanged between applications.</p>
+    
+    <h3 class="font-weight-bold">API</h3>
+    <p>An API (application programming interface) allows other developers to use some of the app’s functionality without sharing the code.  The endpoints are exposed by the developers while the API can control access with an API key. Examples of well-made APIs are those created by Facebook, Twitter, and Google for their web services.</p>
+    
+    <h3 class="font-weight-bold">Data formats</h3>
+    <p>Data is stored in a structure called a data format.</p>
+    <p><span class="highlighting">JSON</span> – JavaScript Object Notation is a syntax for storing and exchanging data (just like XML). It is currently becoming the most popular data format out there.</p>
+    <p><span class="highlighting">XML</span> – Predominantly used by Microsoft systems, it used to be the most popular data format.</p>
+    <p><span class="highlighting">CSV</span> – is data formatted by commas; for example Excel data.</p>
+    
+    <img class="global-left-img col-12 col-lg-6 ripple"  src="https://www.ionos.fr/digitalguide/fileadmin/DigitalGuide/Teaser/datensicherung-von-verschiedene-devices-c.jpg" data-mdb-ripple-color="light" alt="photo"/>
+    <h3 class="font-weight-bold">Client (or Client-side)</h3>
+    <p>Each user of an application is called a client. Clients can be computers, mobile devices, tablets etc. Usually, multiple clients are interacting with the same app stored on a server.</p>
+    
+    <h3 class="font-weight-bold">Server (or Server-side)</h3>
+    <p>The application code is usually stored on the server. The clients make requests to the servers. The servers then respond to those requests after gathering the requested information.</p>
+    
+    <h3 class="font-weight-bold">Ending thoughts on the latest web technologies</h3>
+    <p>In order to <span class="highlighting">stay up to date with the latest web technologies</span>, one has to learn new things all the time. Web technologies are being improved and updated all the time and every <span class="highlighting">web development team</span> should take advantage of that whenever possible.</p>
+    <p>New web technologies change the entire web development process and it can be hard sometimes to understand all of them in the right way. Luckily, with the right internet technology tutorial, you should be able to learn more about them in no time.</p>
+    <p>If you enjoyed reading this article on web technologies, you should check out this one about <span class="highlighting">web application development</span>.</p>
+    <p>We also wrote about a few related subjects like <span class="highlighting">web development</span> trends and <span class="highlighting">web application</span> testing.</p>
+    <a class="btn btn-outline-dark btn-lg box-shadow" role="button" routerLink="/technology/viewTechnologies">View Technologies</a>
   </div>
-   
-
-
 </div>
 
 

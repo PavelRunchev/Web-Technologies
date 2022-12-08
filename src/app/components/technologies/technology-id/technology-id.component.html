@@ -1,9 +1,9 @@
-<div>
-    <div *ngIf="loading">
-        <img [src]="loadingService.getUrl()" alt="photo"/>
-    </div>
+<div class="container-fluid py-5 px-0">
+  <div *ngIf="loading" class="container m-auto container-loading d-flex justify-content-center align-items-center my-5">
+    <img [src]="loadingService.getUrl()" alt="photo" class="loading-image"/>
+  </div>
 
-    <div *ngIf="loading == false">
+    <div *ngIf="loading == false" class="container container-details-technologies col-11 col-sx-10 col-md-9 col-lg-8 col-xl-7">
        
             <h3>Technology: {{ technology.name}}</h3>
             <img style="width: 250px;" src="{{technology.imgUrl}}" alt="photo"/>

@@ -9,8 +9,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-technology-id',
-  templateUrl: './technology-id.component.html',
-  styleUrls: ['./technology-id.component.scss']
+  templateUrl: './technology-id.component.html'
 })
 export class TechnologyIDComponent implements OnInit {
   technology: TechnologyModel = {};

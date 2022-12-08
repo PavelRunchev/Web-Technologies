@@ -41,3 +41,10 @@
         padding: 10px 20px;
     }
 }
+
+@mixin global-img {
+    cursor: pointer;
+    padding: 0px;
+    border-radius: 5px;
+    @include form-shadow;
+}

@@ -1,8 +1,13 @@
 
 @use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
 
 .navigation {
+    position: sticky;
+    top: 0px;
     background-color: $background-secondary;
+    z-index: 1000;
+    @include form-shadow;
 
     .fa-bars {
         color: $color-primary !important;
@@ -91,6 +96,10 @@
         &:hover {
             background-color: $background-primary !important;
         }
+    }
+
+    .dropdown-menu {
+        @include form-shadow;
     }
 
     //*
