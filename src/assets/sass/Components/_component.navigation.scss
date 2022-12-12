@@ -74,7 +74,7 @@
         }
 
         &:hover ~ .under-line-dropdown {
-            width: 105px;
+            width: 66px;
         }
     }
 
@@ -130,31 +130,14 @@
         }
     }
 
-    .btn-search {
-        color: $color-thirdly;
-        border: 1px solid $color-thirdly;
-        -webkit-box-shadow: 2px 2px 9px -10px $color-primary;
-        -moz-box-shadow: 2px 2px 9px -10px $color-primary;
-        box-shadow: 2px 2px 9px -10px $color-primary;
+    .fa-search {
+        cursor: pointer;
+        color: $color-fivethly !important;
         z-index: 10;
         transition: all 0.4s ease-out;
 
-        @include for-phone-only {
-            width: 100px;
-            border-bottom-left-radius: 3px !important;
-            border-top-left-radius: 3px !important;
-            margin: 2% 0;
-        }
-
-        @include for-tablet-portrait-up {
-            border-bottom-left-radius: 0px !important;
-            border-top-left-radius: 0px !important;
-            margin: 0;
-        }
-
         &:hover {
-            color: $background-primary;
-            background-color: $color-thirdly;
+            color: $color-thirdly !important;
         }
     }
 }

@@ -33,6 +33,7 @@ html {
   h1 {
 	font-size: 2em;
 	margin: 0.67em 0;
+  overflow-wrap: break-word;
   }
   
   /* Grouping content
@@ -356,6 +357,10 @@ body, main {
 
 *:focus {
     outline: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, div, p, span {
+  overflow-wrap: break-word;
 }
   
 
