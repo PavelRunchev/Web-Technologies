@@ -61,7 +61,7 @@ export class TechnologyIDComponent implements OnInit {
   }
 
   backToHome() {
-    this.route.navigate(['/home']);
+    this.route.navigate(['/technology/viewTechnologies']);
   }
 
   updateTechnology(id: string, tech: TechnologyModel) {

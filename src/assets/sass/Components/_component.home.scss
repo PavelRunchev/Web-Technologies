@@ -1,0 +1,15 @@
+@use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
+
+.box-shadow {
+    border-color: $color-primary;
+    color: $color-primary;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        border-color: $color-fivethly;
+        color: $color-fivethly;
+        @include btn-shadow;
+    }
+    
+}

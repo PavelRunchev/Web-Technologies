@@ -1,0 +1,57 @@
+@use '../Settings/_settings.breakpoints';
+@use '../Tools/_tools.mixins';
+
+.container-all-technologies {
+    width: 100%;
+    @include form-shadow;
+    border-radius: 5px;
+    padding: 3% 2%;
+
+    .technology-img {
+        padding: 10px;
+        border-radius: 5px;
+        @include form-shadow;
+        height: auto;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+
+        @include for-tablet-up {
+            width: 300px;
+            height: 200px;
+            margin-right: 20px;
+        }
+
+        @include for-tablet-down {
+            margin-right: 20px;
+        }
+
+        @include for-tablet-portrait-up {
+            width: 70%;
+            margin: 10px auto;
+        }
+
+        @include for-phone-only {
+            width: 100%;
+            margin: 10px auto;
+        }
+    }
+
+    .text-technology-name {
+        color: $color-secondary;
+    }
+
+    .btn-more {
+        text-decoration: none;
+        //text-transform: uppercase;
+        @include btn-global($color-sixthly, $color-fourthly, $color-sixthly);
+        font-size: 14px;
+        margin-bottom: 30px;
+        padding: 7px 25px;
+
+        &:hover {
+            color: $color-thirdly;
+            border-color: $color-thirdly;
+            @include btn-shadow-hover;
+        }
+    }
+}
