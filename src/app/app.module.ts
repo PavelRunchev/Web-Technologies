@@ -35,6 +35,8 @@ import { HomeComponent } from './components/shared/home/home.component';
 import { SharedModule } from './components/shared/shared.module';
 import { TechnologiesModule } from './components/technologies/technologies.module';
 
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { TechnologiesModule } from './components/technologies/technologies.modul
   ],
   imports: [
     BrowserModule,
+    LazyLoadImageModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,

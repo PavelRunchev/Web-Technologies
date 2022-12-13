@@ -40,18 +40,5 @@
         color: $color-secondary;
     }
 
-    .btn-more {
-        text-decoration: none;
-        //text-transform: uppercase;
-        @include btn-global($color-sixthly, $color-fourthly, $color-sixthly);
-        font-size: 14px;
-        margin-bottom: 30px;
-        padding: 7px 25px;
-
-        &:hover {
-            color: $color-thirdly;
-            border-color: $color-thirdly;
-            @include btn-shadow-hover;
-        }
-    }
+    
 }

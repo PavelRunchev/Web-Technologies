@@ -35,7 +35,6 @@ export class ViewTechnologiesComponent implements OnInit {
   ngOnInit() {
     //this.deleteTechnology('-NGgaRQ-fHzCGkEGkcGA');
     //this.updateTechnology('-NGgQT-k-I97qzOMbpdV', this.updatedTechnology);
-    //this.service.login('setty_ii@abv.bg', 'y8Xa4jlTVnUNcOUnp16mz9ASJtP2');
     this.getData();
   }
 

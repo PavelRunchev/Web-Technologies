@@ -12,3 +12,9 @@
     @include global-img;
     margin: 10px 0px 10px 20px;
 }
+
+.image {
+    @include global-img;
+    display: block;
+    margin: 0 auto;
+}
