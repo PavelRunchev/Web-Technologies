@@ -1,14 +1,20 @@
-<div class="coontainder-fluid container-create-technology">
+<div class="coontainder-fluid container-update-technology">
     <h2 class="title-create-technology">Technology Form</h2>
     <div class="note-container pl-3 pl-md-0">
         <div class="font-italic text-break"><b>Note!</b> Image Url must be is - https://...png, jpg or jpeg!</div>
         <div class="font-italic text-break">Gif must be file downloded local gif format! example.gif</div>
         <div class="font-italic text-break">Video Url must be is - https://www.youtube.com/embed/IQr3fF9fgFY! (example)</div>
     </div>
-    <div class="container-form col-11 col-xs-11 col-md-11 col-xl-8">
-        <form [formGroup]="technologyForm" (ngSubmit)="createTechnology()">
+
+    <div *ngIf="loading" class="container m-auto container-loading d-flex justify-content-center align-items-center my-5">
+        <img [src]="loadingService.getUrl()" alt="photo" class="loading-image"/>
+    </div>
+
+    <div *ngIf="loading == false" class="container-form col-11 col-xs-11 col-md-11 col-xl-8">
+        <form [formGroup]="technologyForm" (ngSubmit)="updateTechnology()">
             <a (click)="backToTechnology()" class="btn-form-back m-2 float-right" data-mdb-ripple-color="dark">Back</a>
-            <h3 class="text-center">Create Form</h3>
+            <h3 class="text-center">Update Form</h3>
+            
             <div class="d-flex flex-row flex-wrap">
 
                 <div class="form-group col-12 col-md-6">
@@ -93,7 +99,7 @@
                 <div class="form-group col-12 col-md-6">
                     <textarea type="text" 
                         formControlName="description" 
-                        class="input-group" 
+                        class="input-group " 
                         id="Description" 
                         rows="8"
                         (click)="isFocusDescription = true"
@@ -112,7 +118,8 @@
                 </div>
                 
                 <div>
-                    <button [disabled]="technologyForm.invalid || technologyForm.pristine" type="submit" class="btn-create ripple ml-3 mb-2" data-mdb-ripple-color="light">Create</button>
+                    <button [disabled]="technologyForm.invalid" type="submit" class="btn-update ripple ml-3 mb-2" data-mdb-ripple-color="light">Update</button>
+                    
                 </div>
             </div>
            

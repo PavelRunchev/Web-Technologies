@@ -1,7 +1,7 @@
 @use '../Settings/settings.color';
 @use '../Tools/_tools.mixins';
 
-.container-create-technology {
+.container-update-technology {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@
             @include input-shadow;
             padding: 0.67em 0.75em;
             overflow-wrap: break-word;
-            overflow: hidden;
+            overflow-y: auto;
             transition: all 0.3s ease-out;
 
             &:focus {
@@ -79,7 +79,7 @@
             color: $color-thirdly;
         }
 
-        .btn-create {
+        .btn-update {
             @include btn-global($color-thirdly, $color-fourthly, $color-thirdly);
 
             &:disabled {
@@ -95,3 +95,4 @@
         }
     }
 }
+

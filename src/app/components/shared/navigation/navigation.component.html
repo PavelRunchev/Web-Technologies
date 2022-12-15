@@ -97,13 +97,13 @@
           aria-labelledby="navbarDropdownMenuLink"
         >
           <li>
-            <a class="dropdown-item" href="#">Some news</a>
+            <a class="dropdown-item" routerLink="/user/new-message">Some news</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Another news</a>
+            <a class="dropdown-item" routerLink="/user/another-messages">Another news</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" routerLink="/user/add-messages">Add Message</a>
           </li>
         </ul>
       </div>
@@ -130,13 +130,13 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" routerLink="/user/my-profile">My profile</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" routerLink="/user/settings">Settings</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a (click)="logout()" class="dropdown-item" routerLink="/home">Logout</a>
           </li>
         </ul>
       </div>

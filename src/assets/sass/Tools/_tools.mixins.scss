@@ -43,10 +43,12 @@
 }
 
 @mixin global-img {
+    opacity: 0;
     cursor: pointer;
     padding: 0px;
     border-radius: 5px;
     @include form-shadow;
+    animation: fadeIn 1s forwards;
 }
 
 

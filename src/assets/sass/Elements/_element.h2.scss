@@ -1,0 +1,6 @@
+@use '../Settings/_settings.color';
+
+.h2-title {
+    color: $color-thirdly;
+    font-weight: bold;
+}

@@ -22,7 +22,7 @@ export class ToastrService {
     if(autoClose) {
       this.timer = window.setTimeout(() => {
         this.status.next(null);
-      }, 3000);
+      }, 4000);
     }
   }
 }

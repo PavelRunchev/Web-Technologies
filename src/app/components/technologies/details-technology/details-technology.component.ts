@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { TechnologyService } from '../technology.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TechnologyModel } from './../technology.model';
+import { TechnologyModel } from '../technology.model';
 import { ToastrService } from '../../../core/toastr/toastr.service';
 import { LoadingService } from 'src/app/core/loading/loadint.service';
 import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-technology-id',
-  templateUrl: './technology-id.component.html'
+  selector: 'app-details-technology',
+  templateUrl: './details-technology.component.html'
 })
-export class TechnologyIDComponent implements OnInit {
+export class DetailsTechnologyComponent implements OnInit {
   technology: TechnologyModel = {};
   loading: boolean = true;
   id: string = '';
@@ -33,31 +33,27 @@ export class TechnologyIDComponent implements OnInit {
   }
 
   getById(key: string) {
-     this.service.getAll().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ ...c.payload.val(), id: c.payload.key })))
-    ).subscribe(data => {
-        let curentItem = data.filter(t => t.id == key)[0];
-        if(curentItem != undefined) {
-
-          curentItem['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(curentItem.videoUrl + '');
-          if(curentItem.gif !== undefined && curentItem.gif[0] == 'h') {
-            curentItem['gifUrl'] = curentItem.gif;
-            curentItem.gif = null;
-          }
-
-          this.technology = curentItem;
+    this.service.getAll().snapshotChanges().pipe(
+     map(data =>
+       data.map(c => ({ ...c.payload.val(), id: c.payload.key })))
+    ).subscribe(collecton => {
+       let currentCollecton = collecton.filter(t => t.id == key)[0];
+       if(currentCollecton != undefined) {
+          currentCollecton['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(currentCollecton.videoUrl + '');
+          currentCollecton['descriptionOne'] = currentCollecton.description.split('. ').slice(0, 10).join('. ') + '.';
+          currentCollecton['descriptionTwo'] = currentCollecton.description.split('. ').slice(10, 17).join('. ') + '.';
+          currentCollecton['descriptionThree'] = currentCollecton.description.split('. ').slice(17).join('. ');
+          this.technology = currentCollecton;
           this.loading = false;
-        }
+       }
     });
   }
 
   deleteTechnology(key: string) {
-    console.log('delete');
-    this.service.delete(key).then(() => {
-      this.toastr.showToastr('success', 'Technology is deleted!', 'top-right', true);
-      this.route.navigate(['/home']);
-    });
+    // this.service.delete(key).then(() => {
+    //   this.toastr.showToastr('success', 'Technology is deleted!', 'top-right', true);
+    //   this.route.navigate(['/home']);
+    // });
   }
 
   backToHome() {

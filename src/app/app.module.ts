@@ -51,6 +51,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     FormsModule,
     SharedModule,
     TechnologiesModule,
+
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -66,6 +67,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,

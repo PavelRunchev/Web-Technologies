@@ -1,0 +1,16 @@
+@use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
+
+.btn-more {
+    text-decoration: none !important;
+    @include btn-global($color-sixthly, $color-fourthly, $color-sixthly);
+    font-size: 14px;
+    margin-bottom: 30px;
+    padding: 7px 25px;
+
+    &:hover {
+        color: $color-thirdly;
+        border-color: $color-thirdly;
+        @include btn-shadow-hover;
+    }
+}

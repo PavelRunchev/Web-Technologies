@@ -1,0 +1,113 @@
+@use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
+
+//Toast
+.toast-container {
+    width: 350px;
+    height: 100px;
+    color: #fff;
+    margin: 10px;
+    padding: 20px 25px;
+    position: fixed;
+    z-index: 10010;
+    pointer-events: auto;
+    box-shadow:  0 0 12px #999;
+    border-radius: 3px;
+    display: flex;
+    @include form-shadow;
+
+    .toast-content {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            font-size: 26px;
+            display: inline-block;
+            border-radius: 50%;
+            background-color: #fff;
+            color: $color-fivethly;
+            padding-left: 6px;
+            margin-right: 30px;
+        }
+    }
+
+    .closeBtn {
+        cursor:pointer;
+        pointer-events: auto;
+        position: absolute;
+        right: 12px;
+        top: 2px;
+        font-size: 20px;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            color: #DDD;
+        }
+    }
+
+    &.success {
+        background-color: $color-primary;
+        .toast-content {
+            .icon {
+                padding-left: 10px;
+                padding-bottom: 10px;
+                color: $color-primary;
+            }
+        }
+    }
+
+    &.error {
+        background-color: rgb(205,77,96);
+        .toast-content {
+            .icon {
+                padding-left: 9px;
+                color: rgb(205,77,96);
+            }
+        }
+    }
+
+    &.warn {
+        background-color: rgb(212,158,39);
+        .toast-content {
+            .icon {
+                padding-left: 9px;
+                color: rgb(212,158,39);
+            }
+        }
+    }
+
+    &.info {
+        background-color: rgb(92,168,199);
+        .toast-content {
+            .icon {
+                padding-left: 9px;
+                color: rgb(92,168,199);
+            }
+        }
+    }
+
+    &.top-left {
+        left: 0px;
+        top: 75px;
+    }
+
+    &.top-right {
+        right: 0px;
+        top: 75px;
+    }
+
+    &.bottom-left {
+        left: 0px;
+        top: 0px;
+    }
+
+    &.bottom-right {
+        right: 0px;
+        top: 0px;
+    }
+}
+

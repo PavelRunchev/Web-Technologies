@@ -41,8 +41,7 @@
               "src/assets/bootstrap-resource/bootstrap-js/bootstrap.bundle.js",
               "src/assets/bootstrap-resource/bootstrap-js/popper.min.js",
               "src/assets/bootstrap-resource/bootstrap-js/scrolling.js",
-              "src/assets/bootstrap-resource/bootstrap-js/mdb.min.js",
-              "node_modules/chart.js/dist/chart.js"
+              "src/assets/bootstrap-resource/bootstrap-js/mdb.min.js"
             ]
           },
           "configurations": {

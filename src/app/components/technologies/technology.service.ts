@@ -19,7 +19,6 @@ export class TechnologyService {
     private auth: AngularFireAuth,
   ) {
     this.dbTechnologies = this.db.list(this.dbPath);
-    //firebase.auth().reauthenticateWithCredential;
   }
 
   login(email: string, password: string) {
@@ -41,12 +40,12 @@ export class TechnologyService {
     return this.dbTechnologies;
   }
 
-  create(tutorial: TechnologyModel): any {
-    return this.dbTechnologies.push(tutorial);
+  create(newObject: TechnologyModel): any {
+    return this.dbTechnologies.push(newObject);
   }
 
-  update(key: string, value: any): Promise<void> {
-    return this.dbTechnologies.update(key, value);
+  update(key: string, newObject: TechnologyModel): Promise<void> {
+    return this.dbTechnologies.update(key, newObject);
   }
 
   delete(key: string): Promise<void> {

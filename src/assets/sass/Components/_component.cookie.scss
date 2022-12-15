@@ -1,0 +1,26 @@
+@use '../Settings/_settings.color';
+
+.container-cookie {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    background-color: $color-fivethly;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-out;
+    font-size: 12px;
+
+    .btn-got-it {
+        @include btn-global($color-thirdly, $color-fourthly, $color-thirdly);
+        font-size: 14px;
+        padding: 7px 25px;
+        margin-bottom: 0px;
+
+        &:hover {
+            color: $color-fourthly;
+            background-color: $color-thirdly;
+        }
+    }
+}

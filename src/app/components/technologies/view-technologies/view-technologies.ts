@@ -19,7 +19,7 @@ export class ViewTechnologiesComponent implements OnInit {
     name: "SASS",
     imgUrl: "https://www.ionos.com/digitalguide/fileadmin/DigitalGuide/Teaser/sass.jpg",
     imgUrl2: "https://res.cloudinary.com/practicaldev/image/fetch/s--N5peVEVC--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/t0d6457k6jo5a8metzfi.png",
-    gif: "../../../assets/image/scss.gif",
+    gifUrl: "../../../assets/image/scss.gif",
     videoUrl: "https://www.youtube.com/embed/itEFprr8soo",
     description: "If you use CSS, learning SASS will save heaps of time, code and pain. It's basically CSS with more features and functionality, and while it's been around for a while now, it's good to know and understand it inside and how to take full potential of its abilities. SASS is pre-processed CSS with tools like nesting, variables, mixins and more. Writing in SASS and then compiling your code to CSS ends up being the same result (CSS) however the pre-processed SASS has more flexibility.",
     untrustedVideoUrl: null
@@ -55,10 +55,10 @@ export class ViewTechnologiesComponent implements OnInit {
       this.technologies
         .map(d => { 
           d['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(d.videoUrl + '');
-          if(d.gif !== undefined && d.gif[0] == 'h') {
-            d['gifUrl'] = d.gif;
-            d.gif = null;
-          }
+          // if(d.gif !== undefined && d.gif[0] == 'h') {
+          //   d['gifUrl'] = d.gif;
+          //   d.gif = null;
+          // }
 
           d['partDescription'] = d.description.split('. ').slice(0, 7).join('. ') + "...";
         });

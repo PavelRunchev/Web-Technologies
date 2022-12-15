@@ -4,6 +4,7 @@
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
 
+
 //IT CSS Architecture
 @import './assets/sass/Generic/_generic.reset';
 
@@ -22,6 +23,7 @@
 
 
 @import './assets/sass/Components/_component.navigation';
+@import './assets/sass/Components/_component.toastr';
 @import './assets/sass/Components/_component.header';
 @import './assets/sass/Components/_component.createTechnology';
 @import './assets/sass/Components/_component.footer';
@@ -29,6 +31,8 @@
 @import './assets/sass/Components/_component.view-technologies';
 @import './assets/sass/Components/_component.gallery';
 @import './assets/sass/Components/_component.cookie';
+@import './assets/sass/Components/_component.details-technology';
+@import './assets/sass/Components/_component.update';
 
 
 

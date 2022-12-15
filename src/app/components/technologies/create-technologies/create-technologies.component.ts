@@ -65,12 +65,10 @@ export class CreateTechnologiesComponent implements OnInit {
   createTechnology() {
     const newObjectTech: TechnologyModel = this.technologyForm.value;
     if(newObjectTech.name != '' && newObjectTech.imgUrl != '' 
-      && newObjectTech.imgUrl2 != '' && newObjectTech.gif != ''
+      && newObjectTech.imgUrl2 != '' && newObjectTech.gifUrl != ''
       && newObjectTech.videoUrl != '') {
         this.service.create(newObjectTech)
-        .then((d) => {
-          console.log(d);
-          console.log("created new item successfully!");
+        .then(() => {
           this.toastr.showToastr('success', 'Create Technology successfuly!', 'top-right', true);
           this.router.navigate(['/home']);
         }, err => {
@@ -79,5 +77,9 @@ export class CreateTechnologiesComponent implements OnInit {
       } else {
         console.log('invalid');
       }
+  }
+
+  backToTechnology() {
+    this.router.navigate(['/technology/viewTechnologies']);
   }
 }
