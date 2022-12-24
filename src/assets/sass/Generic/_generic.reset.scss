@@ -357,7 +357,15 @@ body, main {
 }
 
 *:focus {
-    outline: none !important;
+  outline: 0 none !important;
+}
+
+input.form-control:focus,
+template.form-control:focus,
+#message-text:focus,
+select:focus {
+    outline: 0 none !important;
+    border: 1px solid transparent;
 }
 
 h1, h2, h3, h4, h5, h6, div, p, span {

@@ -14,3 +14,71 @@
         @include btn-shadow-hover;
     }
 }
+
+.btn-message,
+.btn-message-remove {
+    cursor: pointer;
+    text-decoration: none !important;
+    color: $color-sixthly !important;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        color: $color-thirdly !important;
+    }
+}
+
+.btn-message:hover > .fa-envelope {
+    opacity: 1;
+}
+
+.btn-create,
+.btn-register,
+.btn-login {
+    @include btn-global($color-thirdly, $color-fourthly, $color-thirdly);
+
+    &:disabled {
+        cursor:default;
+        opacity: 0.5;
+    }
+
+    &:not([disabled]):hover {
+        color: $color-fourthly;
+        background-color: $color-thirdly;
+        @include btn-shadow-hover;
+    }
+}
+
+.btn-back {
+    text-decoration: none !important;
+    @include btn-global($color-btn-back, $color-fourthly, $color-btn-back);
+    font-size: 14px;
+    padding: 7px 30px 7px 25px;
+    color: $color-btn-back !important;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        color: $color-fivethly !important;
+        border-color: $color-fivethly;
+        @include btn-shadow-hover;
+    }
+
+    & > .fa-left-long {
+        color: $color-btn-back;
+    }
+
+    &:hover > .fa-left-long {
+        color: $color-fivethly;
+    }
+}
+
+.btn-auto {
+    text-decoration: none !important;
+    @include btn-global($color-btn-back, $color-fourthly, $color-btn-back);
+    //padding: 13px 30px 13px 25px;
+
+    &:hover {
+        color: $color-fivethly !important;
+        border-color: $color-fivethly;
+        @include btn-shadow-hover;
+    }
+}

@@ -27,8 +27,4 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  closeToastr() {
-    this.showToastr = false;
-  }
 }

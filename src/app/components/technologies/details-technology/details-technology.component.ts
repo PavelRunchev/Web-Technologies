@@ -6,6 +6,7 @@ import { TechnologyModel } from '../technology.model';
 import { ToastrService } from '../../../core/toastr/toastr.service';
 import { LoadingService } from 'src/app/core/loading/loadint.service';
 import { DomSanitizer } from "@angular/platform-browser";
+import { CookieComponent } from '../../shared/cookie/cookie.component';
 
 @Component({
   selector: 'app-details-technology',
@@ -15,7 +16,7 @@ export class DetailsTechnologyComponent implements OnInit {
   technology: TechnologyModel = {};
   loading: boolean = true;
   id: string = '';
-
+  userEmail: string;
 
   constructor(
     private service: TechnologyService,
@@ -23,44 +24,57 @@ export class DetailsTechnologyComponent implements OnInit {
     private route: Router,
     private loadingService: LoadingService,
     private sanitizer: DomSanitizer,
-    public toastr: ToastrService
+    private toastr: ToastrService,
+    private cookie: CookieComponent
   ) { 
     this.id =  this.activRoute.snapshot.paramMap.get('id');
+    this.userEmail = this.cookie.getCookie('accessEmail');
   }
 
   ngOnInit(): void {
     this.getById(this.id);
+
   }
 
-  getById(key: string) {
-    this.service.getAll().snapshotChanges().pipe(
-     map(data =>
-       data.map(c => ({ ...c.payload.val(), id: c.payload.key })))
-    ).subscribe(collecton => {
-       let currentCollecton = collecton.filter(t => t.id == key)[0];
-       if(currentCollecton != undefined) {
-          currentCollecton['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(currentCollecton.videoUrl + '');
-          currentCollecton['descriptionOne'] = currentCollecton.description.split('. ').slice(0, 10).join('. ') + '.';
-          currentCollecton['descriptionTwo'] = currentCollecton.description.split('. ').slice(10, 17).join('. ') + '.';
-          currentCollecton['descriptionThree'] = currentCollecton.description.split('. ').slice(17).join('. ');
-          this.technology = currentCollecton;
+  getById(id: string): void {
+    this.service.getById(id).valueChanges()
+      .subscribe((data: TechnologyModel) => {
+        let currentTechnology = data;
+        if(currentTechnology != undefined) {
+          currentTechnology['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(currentTechnology.videoUrl + '');
+          currentTechnology['descriptionOne'] = currentTechnology.description.split('. ').slice(0, 7).join('. ');
+          currentTechnology['descriptionTwo'] = currentTechnology.description.split('. ').slice(7, 14).join('. ');
+          currentTechnology['descriptionThree'] = currentTechnology.description.split('. ').slice(14, 21).join('. ');
+          currentTechnology['descriptionFour'] = currentTechnology.description.split('. ').slice(21).join('. ');
+
+          currentTechnology['descriptionOne'] = this.checkForEndDot(currentTechnology['descriptionOne']);
+          currentTechnology['descriptionTwo'] = this.checkForEndDot(currentTechnology['descriptionTwo']);
+          currentTechnology['descriptionThree'] = this.checkForEndDot(currentTechnology['descriptionThree']);
+          currentTechnology['descriptionFour'] = this.checkForEndDot(currentTechnology['descriptionFour']);
+
+          currentTechnology['id'] = this.id;
+          this.technology = currentTechnology;
           this.loading = false;
        }
-    });
+      });
   }
 
-  deleteTechnology(key: string) {
-    // this.service.delete(key).then(() => {
-    //   this.toastr.showToastr('success', 'Technology is deleted!', 'top-right', true);
-    //   this.route.navigate(['/home']);
-    // });
+  deleteTechnology(id: string): void {
+    if(this.technology.creator == this.userEmail) {
+      this.service.delete(id).then(() => {
+        this.toastr.showToastr('success', 'Technology is deleted!', 'top-right', true);
+        this.route.navigate(['/technology/viewTechnologies']);
+      });
+    }
   }
 
-  backToHome() {
+  backToHome(): void {
     this.route.navigate(['/technology/viewTechnologies']);
   }
 
-  updateTechnology(id: string, tech: TechnologyModel) {
-    this.service.update(id, tech).then(() => console.log('The technology was updated successfully!'));
+  checkForEndDot(str: string): string {
+    if(str[str.length - 1] != '.' || str[str.length - 1] != ' .')
+      str += '.';
+    return str;
   }
 }

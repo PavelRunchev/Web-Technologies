@@ -106,16 +106,13 @@
     //search form
     //*
     .input-search {
-        border: none;
+        outline: none !important;
+        border: none !important;
         color: $color-fivethly;
-        border-radius: 0px;
-        border: 1px solid $color-fivethly;
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
-        -webkit-box-shadow: 0px 2px 6px -5px $color-primary;
-        -moz-box-shadow: 0px 2px 6px -5px $color-primary;
-        box-shadow: 0px 2px 6px -5px $color-primary;
-        background-color: $background-primary;
+        border-bottom: 0.5px solid $color-fivethly !important;
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+        background-color: transparent;
         transition: all 0.4s ease-out;
 
         @include for-phone-only {
@@ -125,7 +122,7 @@
         &:focus {
             outline: none !important;
             color: $color-fivethly;
-            border: 1px solid $color-thirdly;
+            border-bottom: 0.5px solid $color-thirdly !important;
             box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;
         }
     }

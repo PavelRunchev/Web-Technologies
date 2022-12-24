@@ -1,0 +1,25 @@
+@use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
+
+
+//Register btn Top Form
+.register-list-item-default {
+    width: 45% !important;
+    background-color: transparent;
+}
+
+.register-list-item {
+    width: 45% !important;
+    background-color: $background-primary;
+}
+
+//Login btn Top Form
+.login-list-item-default {
+    width: 45% !important;
+    background-color: transparent;
+}
+
+.login-list-item {
+    width: 45% !important;
+    background-color: $background-primary;
+}

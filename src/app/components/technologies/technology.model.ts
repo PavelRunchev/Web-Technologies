@@ -6,5 +6,6 @@ export interface TechnologyModel {
   gifUrl?: string | null,
   videoUrl?: string | null,
   description?: string | null,
-  untrustedVideoUrl?: any | null
+  untrustedVideoUrl?: any | null,
+  creator?: string
 }

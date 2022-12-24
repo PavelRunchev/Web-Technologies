@@ -7,9 +7,9 @@
     </div>
     <div class="container-form col-11 col-xs-11 col-md-11 col-xl-8">
         <form [formGroup]="technologyForm" (ngSubmit)="createTechnology()">
-            <a (click)="backToTechnology()" class="btn-form-back m-2 float-right" data-mdb-ripple-color="dark">Back</a>
+            <a (click)="backToTechnology()" class="btn-form-back d-flex justify-content-center m-sm-2 float-sm-right" data-mdb-ripple-color="dark">Back</a>
             <h3 class="text-center">Create Form</h3>
-            <div class="d-flex flex-row flex-wrap">
+            <div class="d-flex flex-row flex-wrap w-100">
 
                 <div class="form-group col-12 col-md-6">
                     <input type="text" formControlName="name" id="name" class="input-group" 
@@ -111,8 +111,8 @@
                     </div>
                 </div>
                 
-                <div>
-                    <button [disabled]="technologyForm.invalid || technologyForm.pristine" type="submit" class="btn-create ripple ml-3 mb-2" data-mdb-ripple-color="light">Create</button>
+                <div class="w-100 d-flex justify-content-center justify-content-sm-start mb-3 pl-sm-3">
+                    <button [disabled]="technologyForm.invalid || technologyForm.pristine" type="submit" class="btn-create ripple" data-mdb-ripple-color="light">Create</button>
                 </div>
             </div>
            

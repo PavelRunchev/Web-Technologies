@@ -1,0 +1,33 @@
+<!-- Modal my profile-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-dialog modal-dialog-scrollable mb-3">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+              class="rounded-circle d-block mx-auto"
+              height="75"
+              alt="Black and White Portrait of a Man"
+              loading="lazy"
+            />
+  
+          <p class="mt-3">Username: <span class="highlighting">gorgon</span></p>
+          <p>FirstName: <span class="font-weight-bold">George</span></p>
+          <p>SurName: <span class="font-weight-bold">Green</span></p>
+          <p>Email: <span class="highlighting">GeorgeGreen@gmail.com</span></p>
+          <p>Age: <span class="font-weight-bold">32</span></p>
+          <p>Country: <span class="font-weight-bold">UK</span></p>
+          <p>City: <span class="font-weight-bold">London</span></p>
+          <p>Phone: +44 584 363 999</p>
+          <p>Education: <span class="font-weight-bold">Magaster</span></p>
+        </div>
+        <div class="modal-footer">
+          <button (click)="myProfileSaveChanges()" type="button" data-mdb-dismiss="modal" class="btn-more">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>

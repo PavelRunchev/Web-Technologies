@@ -18,6 +18,7 @@
     }
 
     .btn-update {
+        cursor: pointer;
         text-decoration: none !important;
         @include btn-global($color-btn-update, $color-fourthly, $color-btn-update);
         font-size: 14px;
@@ -37,29 +38,6 @@
 
         &:hover > .fa-pen {
             color: $color-btn-update-hover;
-        }
-    }
-
-    .btn-back {
-        text-decoration: none !important;
-        @include btn-global($color-btn-back, $color-fourthly, $color-btn-back);
-        font-size: 14px;
-        padding: 7px 30px 7px 25px;
-        color: $color-btn-back !important;
-        transition: all 0.3s ease-out;
-
-        &:hover {
-            color: $color-fivethly !important;
-            border-color: $color-fivethly;
-            @include btn-shadow-hover;
-        }
-
-        & > .fa-left-long {
-            color: $color-btn-back;
-        }
-
-        &:hover > .fa-left-long {
-            color: $color-fivethly;
         }
     }
 

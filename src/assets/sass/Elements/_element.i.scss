@@ -1,0 +1,23 @@
+
+
+//register form - sign in auto btn icon!
+.btn-login-auto {
+    .fa-arrow-right-to-bracket {
+        opacity: 0;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &:hover > .fa-arrow-right-to-bracket {
+        opacity: 1;
+    }
+}
+
+
+.fa-envelope {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}

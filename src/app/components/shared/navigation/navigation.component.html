@@ -55,7 +55,6 @@
             </ul>
           </li>
         </ul>
-
         
         <form class="d-flex flex-column flex-sm-row input-group w-auto mr-3">
           <input
@@ -63,24 +62,31 @@
             class="form-control input-search rounded"
             placeholder="Search"
             aria-label="Search"
+            #name
           />
-          <!-- <button
-            class="btn btn-search"
-            type="button"
-            data-mdb-ripple-color="dark"
-          >
-            Search
-          </button> -->
+
           <span class="input-group-text border-0" id="search-addon">
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search" (click)="submitSearch(name)"></i>
           </span>
         </form>
 
 
         <!-- Right elements -->
     <div class="d-flex align-items-center my-3 my-lg-0">
+      <ul *ngIf="!userService.isLoggedIn()" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" >
+          <a class="nav-link active" 
+            data-mdb-toggle="modal" 
+            href="#login"
+          >
+            Login
+          </a>
+          <span class="under-line"></span>
+        </li>
+        
+      </ul>
       <!-- Notifications -->
-      <div class="dropdown">
+      <div *ngIf="userService.isLoggedIn()" class="dropdown">
         <a
           class="text-reset me-3 dropdown-toggle hidden-arrow"
           href="#"
@@ -90,25 +96,33 @@
           aria-expanded="false"
         >
           <i class="fas fa-bell"></i>
-          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          <span class="badge rounded-pill badge-notification bg-danger">{{notification}}</span>
         </a>
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
         >
           <li>
-            <a class="dropdown-item" routerLink="/user/new-message">Some news</a>
+            <a 
+            class="dropdown-item" 
+            data-mdb-toggle="modal" 
+            href="#exampleModal5"
+          >New Messages</a>
           </li>
           <li>
-            <a class="dropdown-item" routerLink="/user/another-messages">Another news</a>
+            <a class="dropdown-item" routerLink="/user/another-messages">Another Messages</a>
           </li>
           <li>
-            <a class="dropdown-item" routerLink="/user/add-messages">Add Message</a>
+            <a 
+              class="dropdown-item" 
+              data-mdb-toggle="modal" 
+              href="#exampleModal"
+            >Add Message</a>
           </li>
         </ul>
       </div>
       <!-- Avatar -->
-      <div class="dropdown">
+      <div *ngIf="userService.isLoggedIn()" class="dropdown">
         <a
           class="dropdown-toggle d-flex align-items-center hidden-arrow"
           href="#"
@@ -130,16 +144,17 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" routerLink="/user/my-profile">My profile</a>
+            <a class="dropdown-item" data-mdb-toggle="modal" href="#exampleModal2">My profile</a>
           </li>
           <li>
-            <a class="dropdown-item" routerLink="/user/settings">Settings</a>
+            <a class="dropdown-item" data-mdb-toggle="modal" href="#exampleModal3">Settings</a>
           </li>
           <li>
             <a (click)="logout()" class="dropdown-item" routerLink="/home">Logout</a>
           </li>
         </ul>
       </div>
+
     </div>
     <!-- Right elements -->
       </div>

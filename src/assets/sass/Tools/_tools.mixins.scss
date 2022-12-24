@@ -45,6 +45,7 @@
 @mixin global-img {
     opacity: 0;
     cursor: pointer;
+    height: 220px;
     padding: 0px;
     border-radius: 5px;
     @include form-shadow;

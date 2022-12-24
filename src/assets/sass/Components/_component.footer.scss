@@ -1,101 +1,103 @@
 @use '../Settings/_settings.color';
 
-
-i.fab {
-    color: $color-thirdly;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-
-    &:hover {
-        color: $color-secondary;
-    }
-}
-
-i.fas,
-i.fa-solid,
-.fa-product-hunt {
-    font-size: 20px;
-    color: $color-thirdly;
-}
-
-h6 {
-    color: $color-fourthly;
-}
-
-.footer-owner {
-    color: $color-thirdly;
-}
-
-.products-item {
-    position: relative;
-
-    .product-link {
+.footer-container {
+    i.fab {
+        color: $color-thirdly;
+        font-size: 24px;
+        cursor: pointer;
         transition: all 0.3s ease-out;
-
+    
         &:hover {
-            color: $color-secondary !important;
-            text-decoration: none !important;
+            color: $color-secondary;
         }
     }
-
-    .fa-brands,
-    .fa-solid {
-        opacity: 0;
-        position: absolute;
-        color: $color-secondary;
-        top: 4px;
-        left: -22px;
-        transition: all 0.3s ease-out;
+    
+    i.fas,
+    i.fa-solid,
+    .fa-product-hunt {
+        font-size: 20px;
+        color: $color-thirdly;
     }
-
-    .fa-solid {
-        font-size: 14px;
+    
+    h6 {
+        color: $color-fourthly;
     }
-
-    .product-angular:hover ~ .fa-angular {
-        opacity: 1;
+    
+    .footer-owner {
+        color: $color-thirdly;
     }
-
-    .product-react:hover ~ .fa-react {
-        opacity: 1;
+    
+    .products-item {
+        position: relative;
+    
+        .product-link {
+            transition: all 0.3s ease-out;
+    
+            &:hover {
+                color: $color-secondary !important;
+                text-decoration: none !important;
+            }
+        }
+    
+        .fa-brands,
+        .fa-solid {
+            opacity: 0;
+            position: absolute;
+            color: $color-secondary;
+            top: 4px;
+            left: -22px;
+            transition: all 0.3s ease-out;
+        }
+    
+        .fa-solid {
+            font-size: 14px;
+        }
+    
+        .product-angular:hover ~ .fa-angular {
+            opacity: 1;
+        }
+    
+        .product-react:hover ~ .fa-react {
+            opacity: 1;
+        }
+    
+        .product-vue:hover ~ .fa-vuejs {
+            opacity: 1;
+        }
+    
+        .product-express-js:hover ~ .fa-node-js {
+            opacity: 1;
+        }
+    
+        .product-services:hover ~ .fa-gears {
+            opacity: 1;
+        }
+    
+        .product-supports:hover ~ .fa-window-maximize {
+            opacity: 1;
+        }
+    
+        .product-firebase:hover ~ .fa-database {
+            opacity: 1;
+        }
+    
+        .product-help:hover ~ .fa-circle-info {
+            opacity: 1;
+        }
     }
-
-    .product-vue:hover ~ .fa-vuejs {
-        opacity: 1;
+    
+    .footer-logo-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    
+        .footer-angular-logo,
+        .footer-firebase-logo {
+            width: 30px;
+            margin: 0px 5px 10px 0px;
+        }
     }
-
-    .product-express-js:hover ~ .fa-node-js {
-        opacity: 1;
-    }
-
-    .product-services:hover ~ .fa-gears {
-        opacity: 1;
-    }
-
-    .product-supports:hover ~ .fa-window-maximize {
-        opacity: 1;
-    }
-
-    .product-firebase:hover ~ .fa-database {
-        opacity: 1;
-    }
-
-    .product-help:hover ~ .fa-circle-info {
-        opacity: 1;
-    }
+    
+    
 }
-
-.footer-logo-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .footer-angular-logo,
-    .footer-firebase-logo {
-        width: 30px;
-        margin: 0px 5px 10px 0px;
-    }
-}
-

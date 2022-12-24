@@ -1,0 +1,145 @@
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+       
+        <!-- Pills navs -->
+        <ul class="nav nav-pills nav-justified my-3 w-100 ml-0 px-3" id="ex1" role="tablist">
+          <li [ngClass]="[btnLoginLiStyle]" class="nav-item py-2" role="presentation" >
+            <a
+              class="link active"
+              id="tab-login"
+              data-mdb-toggle="pill"
+              href="#pills-login"
+              role="tab"
+              aria-controls="pills-login"
+              aria-selected="true"
+              (click)="toLoginForm()"
+              >Login</a
+            >
+          </li>
+          <li [ngClass]="[btnRegisterLiStyle]" class="nav-item py-2" role="presentation">
+            <a
+              class="link"
+              id="tab-register"
+              data-mdb-toggle="pill"
+              href="#pills-register"
+              role="tab"
+              aria-controls="pills-register"
+              aria-selected="false"
+              (click)="toRegisterForm()"
+              >Register</a
+            >
+          </li>
+        </ul>
+        <!-- Pills navs -->
+
+            <!-- Login Form -->
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Login Form</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                      <label for="email-login" class="col-form-label">Email:</label>
+                      <input type="text" formControlName="email" class="form-control input-default" id="email-login" />
+  
+                        <div *ngIf="loginForm.get('email').touched" class="error">
+                            <div *ngIf="!!loginForm.get('email').errors?.required">Email is required!</div>
+                            <div *ngIf="!!loginForm.get('email').errors?.pattern">Invalid Email!</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password-login" class="col-form-label">Password:</label>
+                        <input type="password" formControlName="password" class="form-control input-default" id="password-login" />
+  
+                        <div *ngIf="loginForm.get('password').touched" class="error">
+                            <div *ngIf="!!loginForm.get('password').errors?.required">Password is required!</div>
+                            <div *ngIf="!!loginForm.get('password').errors?.minlength">Password must be least 8 symbols!</div>
+                            <div *ngIf="!!loginForm.get('password').errors?.maxlength">Password must be max 32 symbols!</div>
+                            <div *ngIf="!!loginForm.get('password').errors?.pattern">Password must has once Upper and lower letter, digit and special symbol!</div>
+                        </div>
+                      </div>
+  
+                    <!-- 2 column grid layout -->
+                    <div class="row mb-4">
+                      <div class="col-md-6 d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check mb-3 mb-md-0">
+                          <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                          <label class="form-check-label" for="loginCheck"> Remember me </label>
+                        </div>
+                      </div>
+  
+                      <div class="col-md-6 d-flex justify-content-center">
+                        <!-- Simple link -->
+                        <a href="#!" class="link">Forgot password?</a>
+                      </div>
+                    </div>
+  
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn-login my-3 mx-auto d-block" data-mdb-dismiss="modal">Login</button>
+                  </form>
+                </div>
+                
+              </div>
+
+              <!-- Register Form -->
+              <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Register Form</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="mb-3">
+                      <label for="email" class="col-form-label">Email:</label>
+                      <input type="text" formControlName="email" class="form-control input-default" id="email" />
+
+                        <div *ngIf="registerForm.get('email').touched" class="error">
+                            <div *ngIf="!!registerForm.get('email').errors?.required">Email is required!</div>
+                            <div *ngIf="!!registerForm.get('email').errors?.pattern">Invalid Email!</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Password:</label>
+                        <input type="password" formControlName="password" class="form-control input-default" id="password" />
+
+                        <div *ngIf="registerForm.get('password').touched" class="error">
+                            <div *ngIf="!!registerForm.get('password').errors?.required">Password is required!</div>
+                            <div *ngIf="!!registerForm.get('password').errors?.minlength">Password must be least 8 symbols!</div>
+                            <div *ngIf="!!registerForm.get('password').errors?.maxlength">Password must be max 32 symbols!</div>
+                            <div *ngIf="!!registerForm.get('password').errors?.pattern">Password must has once Upper and lower letter, digit and special symbol!</div>
+                        </div>
+                      </div>
+
+                      <div class="form-check d-flex justify-content-center mb-4">
+                        <input
+                          class="form-check-input me-2"
+                          type="checkbox"
+                          value=""
+                          id="registerCheck"
+                          checked
+                          aria-describedby="registerCheckHelpText"
+                        />
+                        <label class="form-check-label" for="registerCheck">I have read and agree to the terms</label>
+                      </div>
+
+                      <div class="d-flex justify-content-center flex-wrap mb-4">
+                        <a (click)="loginAuto()" class="link btn-login-auto" data-mdb-dismiss="modal"><i class="fa-sharp fa-solid fa-arrow-right-to-bracket mr-2"></i> Sign in auto</a>
+                      </div>
+
+                      <div class="d-flex justify-content-start my-3">
+                        <button [disabled]="registerForm.invalid || registerForm.pristine" type="submit" class="btn-register" data-mdb-dismiss="modal">Register</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+        
+      </div>
+    </div>
+</div>
+  

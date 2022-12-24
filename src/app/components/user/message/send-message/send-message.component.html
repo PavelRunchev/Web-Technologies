@@ -1,0 +1,34 @@
+<!-- modal Send Message-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+              <div class="mb-3">
+                <label for="user-email" class="col-form-label">Email:</label>
+                <input type="text" class="form-control" id="user-email" formControlName="email"  />
+                <div *ngIf="messageForm.get('email').touched" class="text-errors">
+                  <div *ngIf="!!messageForm.get('email').errors?.pattern">Invalid Email!</div>
+                </div>
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text" formControlName="description" ></textarea>
+                <div *ngIf="messageForm.get('description').touched" class="text-errors">
+                  <div *ngIf="!!messageForm.get('description').errors?.minlength">Description must be min 10 caracters!</div>
+                  <div *ngIf="!!messageForm.get('description').errors?.maxlength">Description must be max 5000 caracters!</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button [disabled]="messageForm.invalid || messageForm.pristine" type="submit" class="btn-more" data-mdb-dismiss="modal">Send message</button>
+              </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+</div>

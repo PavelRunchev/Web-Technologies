@@ -1,0 +1,21 @@
+@use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
+
+.input-default {
+    outline: none !important;
+    background-color: $color-fourthly;
+    color: $color-fivethly;
+    border: 0.5px solid $color-primary;
+    border-radius: 3px;
+    margin: 15px 0;
+    padding: 0.67em 0.75em;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+
+    &:focus {
+        outline: none !important;
+        border: 0.5px solid $color-thirdly !important;
+        box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;
+    }
+}

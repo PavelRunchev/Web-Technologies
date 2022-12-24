@@ -79,19 +79,6 @@
             color: $color-thirdly;
         }
 
-        .btn-create {
-            @include btn-global($color-thirdly, $color-fourthly, $color-thirdly);
-
-            &:disabled {
-                cursor:default;
-                opacity: 0.5;
-            }
-
-            &:not([disabled]):hover {
-                color: $color-fourthly;
-                background-color: $color-thirdly;
-                @include btn-shadow-hover;
-            }
-        }
+        
     }
 }

@@ -1,0 +1,14 @@
+@use '../Settings/_settings.color';
+@use '../Tools/_tools.mixins';
+
+.link {
+    cursor: pointer;
+    text-decoration: none !important;
+    color: $color-sixthly !important;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        color: $color-secondary !important;
+    }
+}
+

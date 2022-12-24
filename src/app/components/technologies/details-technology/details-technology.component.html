@@ -4,7 +4,7 @@
   </div>
 
   <div *ngIf="loading == false" class="container container-details-technologies col-11 col-sx-10 col-md-9 col-lg-8 col-xl-7">
-            <i (click)="deleteTechnology(technology.id)" 
+            <i *ngIf="technology.creator == userEmail" (click)="deleteTechnology(technology.id)" 
               class="fa-solid fa-trash-can" 
               data-mdb-toggle="tooltip" 
               data-mdb-placement="top" 
@@ -14,15 +14,14 @@
             <h3 class="text-center my-3">Web Technology: <span class="highlighting font-weight-bold">{{ technology.name}}</span></h3>
             
             <img *ngIf="technology.imgUrl != null" class="global-left-img col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4" src="{{technology.imgUrl}}" alt="photo"/>
-            <div *ngIf="technology.descriptionOne != null" class="mb-3">{{technology.descriptionOne}}</div>  
+            <div *ngIf="technology.descriptionOne != null" class="mb-4"><span class="tab4"></span>{{technology.descriptionOne}}</div>  
             <img *ngIf="technology.gifUrl != null" class="global-right-img col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4" src="{{technology.gifUrl}}" alt="photo"/>
-            <div *ngIf="technology.descriptionOne != null" class="mb-3">{{technology.descriptionTwo}}</div>  
+            <div *ngIf="technology.descriptionTwo != null" class="mb-4"><span class="tab4"></span>{{technology.descriptionTwo}}</div>  
            
-    
             <img *ngIf="technology.imgUrl2 != null" class="global-left-img col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4" src="{{technology.imgUrl2}}" alt="photo2"/>
-            <div>{{technology.descriptionThree}}</div>
+            <div *ngIf="technology.descriptionThree != null" class="mb-5 tab4"><span class="tab4"></span>{{technology.descriptionThree}}</div>
            
-            <div class="py-3 mb-4 border-bottom border-dark">
+            <div class="py-2">
               <iframe class="d-block mx-auto my-4 w-100" *ngIf="technology.untrustedVideoUrl" 
                 style="height: 400px"
                 [src]="technology.untrustedVideoUrl" 
@@ -32,10 +31,15 @@
                 allowfullscreen>
               </iframe>
             </div>
-           
+
+            <div *ngIf="technology.descriptionFour != null" class="mb-4"><span class="tab4"></span>{{technology.descriptionFour}}</div>
+
+            <div class="d-flex justify-content-end border-bottom border-dark mb-5">
+              <span>Creator: <span class="highlighting">{{technology.creator}}</span></span>
+            </div>
     
             <div class="d-flex flex-row flex-wrap justify-content-center align-items-center">
-              <a routerLink="/technology/update/{{technology.id}}" class="btn-update m-2" data-mdb-ripple-color="dark"><i class="fa-sharp fa-solid fa-pen"></i> Update</a>
+              <a routerLink="/technology/updateTechnology/{{technology.id}}" class="btn-update m-2" data-mdb-ripple-color="dark"><i class="fa-sharp fa-solid fa-pen"></i> Update</a>
               <a (click)="backToHome()" class="btn-back m-2" data-mdb-ripple-color="dark"><i class="fa-solid fa-left-long"></i> Back</a>
             </div>
     </div>

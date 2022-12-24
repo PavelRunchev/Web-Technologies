@@ -16,6 +16,8 @@ import { SharedComponents } from './index';
         CommonModule,
         ...SharedComponents,
         RouterModule
-    ]
+    ],
+
+    providers: [...SharedComponents]
 })
 export class SharedModule { }

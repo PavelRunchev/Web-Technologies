@@ -9,6 +9,7 @@ import { TechnologyModel } from '../technology.model';
 import { ToastrService } from '../../../core/toastr/toastr.service';
 import { LoadingService } from 'src/app/core/loading/loadint.service';
 import { DomSanitizer } from "@angular/platform-browser";
+import { CookieComponent } from '../../shared/cookie/cookie.component';
 
 @Component({
   selector: 'app-update-technology',
@@ -18,6 +19,8 @@ export class UpdateTechnologyComponent implements OnInit {
   technology: TechnologyModel = {};
   loading: boolean = true;
   id: string = '';
+  isOwner: boolean = false;
+  userEmailFromCookie: string;
 
   isFocusName: boolean = true;
   isFocusImgUrl: boolean = true;
@@ -68,61 +71,83 @@ export class UpdateTechnologyComponent implements OnInit {
     private router: Router,
     private loadingService: LoadingService,
     private sanitizer: DomSanitizer,
-    public toastr: ToastrService
+    private toastr: ToastrService,
+    private coockie: CookieComponent
   ) { 
     this.id =  this.activRoute.snapshot.paramMap.get('id');
+    this.userEmailFromCookie = this.coockie.getCookie('accessEmail');
   }
 
   ngOnInit(): void {
     this.getById(this.id);
   }
 
-  getById(key: string) {
+  getById(technology_id: string) {
     this.service.getAll().snapshotChanges().pipe(
      map(data =>
        data.map(c => ({ ...c.payload.val(), id: c.payload.key })))
     ).subscribe(collecton => {
-       let currentCollecton = collecton.filter(t => t.id == key)[0];
-       if(currentCollecton != undefined) {
+       let currentTechnology = collecton.filter(t => t.id == technology_id)[0];
+       if(currentTechnology != undefined) {
+          currentTechnology['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(currentTechnology.videoUrl + '');
+          currentTechnology['descriptionOne'] = currentTechnology.description.split('. ').slice(0, 7).join('. ');
+          currentTechnology['descriptionTwo'] = currentTechnology.description.split('. ').slice(7, 16).join('. ');
+          this.technology = currentTechnology;
+          this.technologyForm.get('name').setValue(this.technology.name);
+          this.technologyForm.get('imgUrl').setValue(this.technology.imgUrl);
+          this.technologyForm.get('imgUrl2').setValue(this.technology.imgUrl2);
+          this.technologyForm.get('gifUrl').setValue(this.technology.gifUrl);
+          this.technologyForm.get('videoUrl').setValue(this.technology.videoUrl);
+          this.technologyForm.get('description').setValue(this.technology.description);
+          this.loading = false;
 
-        currentCollecton['untrustedVideoUrl'] = this.sanitizer.bypassSecurityTrustResourceUrl(currentCollecton.videoUrl + '');
-        //  if(currentCollecton.gif !== undefined && currentCollecton.gif[0] == 'h') {
-        //     currentCollecton['gifUrl'] = currentCollecton.gif;
-        //     currentCollecton.gif = null;
-        //  }
-
-         currentCollecton['descriptionOne'] = currentCollecton.description.split('. ').slice(0, 7).join('. ');
-         currentCollecton['descriptionTwo'] = currentCollecton.description.split('. ').slice(7, 16).join('. ');
-         this.technology = currentCollecton;
-         this.technologyForm.get('name').setValue(this.technology.name);
-         this.technologyForm.get('imgUrl').setValue(this.technology.imgUrl);
-         this.technologyForm.get('imgUrl2').setValue(this.technology.imgUrl2);
-         this.technologyForm.get('gifUrl').setValue(this.technology.gifUrl);
-         this.technologyForm.get('videoUrl').setValue(this.technology.videoUrl);
-         this.technologyForm.get('description').setValue(this.technology.description);
-         this.loading = false;
+          this.isAccessForUpdate();
        }
     });
   }
 
-  updateTechnology() {
+  updateTechnology(): void {
     const newObject: TechnologyModel = this.technologyForm.value;
     if(newObject.name != '' && newObject.imgUrl != '' 
       && newObject.imgUrl2 != '' && newObject.gifUrl != ''
       && newObject.videoUrl != '') {
-        this.service.update(this.id, newObject)
+        if(this.isOwner) {
+          this.service.update(this.id, newObject)
           .then(() => {
-            this.toastr.showToastr('success', 'Update Technology successfuly!', 'top-right', true);
+            this.toastr.showToastr('success', 'The technology was updated successfully!', 'top-right', true);
             this.router.navigate([`/technology/detailsTechnology/${this.id}`]);
           }, err => {
             this.toastr.showToastr('error', `${err}`, 'top-right', true)
           }); 
+        } else {
+          this.toastr.showToastr('error', 'Only creator can update it!', 'top-right', true);
+        }
       } else {
         this.toastr.showToastr('error', 'Invalid Form!', 'top-right', true);
       }
   }
 
-  backToTechnology() {
+  backToTechnology(): void {
     this.router.navigate([`/technology/detailsTechnology/${this.id}`]);
+  }
+
+  isAccessForUpdate(): void {
+    if(this.userEmailFromCookie == this.technology.creator) {
+      this.technologyForm.controls['name'].enable();
+      this.technologyForm.controls['imgUrl'].enable();
+      this.technologyForm.controls['imgUrl2'].enable();
+      this.technologyForm.controls['gifUrl'].enable();
+      this.technologyForm.controls['videoUrl'].enable();
+      this.technologyForm.controls['description'].enable();
+      this.isOwner = true;
+    } else {
+      this.technologyForm.controls['name'].disable();
+      this.technologyForm.controls['imgUrl'].disable();
+      this.technologyForm.controls['imgUrl2'].disable();
+      this.technologyForm.controls['gifUrl'].disable();
+      this.technologyForm.controls['videoUrl'].disable();
+      this.technologyForm.controls['description'].disable();
+      this.isOwner = false;
+    }
   }
 }

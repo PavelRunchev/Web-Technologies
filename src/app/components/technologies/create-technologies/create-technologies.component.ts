@@ -4,7 +4,7 @@ import { TechnologyService } from '../technology.service';
 import { Router } from '@angular/router';
 import { TechnologyModel } from './../technology.model';
 import { ToastrService } from '../../../core/toastr/toastr.service';
-
+import { CookieComponent } from '../../shared/cookie/cookie.component';
 
 @Component({
   selector: 'app-create-technologies',
@@ -17,6 +17,7 @@ export class CreateTechnologiesComponent implements OnInit {
   isFocusGifUrl: boolean = false;
   isFocusVideoUrl: boolean = false;
   isFocusDescription: boolean = false;
+  creator: string;
 
   technologyForm = new FormGroup({
     name: new FormControl('', 
@@ -57,20 +58,26 @@ export class CreateTechnologiesComponent implements OnInit {
   constructor(
     private router: Router,
     private service: TechnologyService,
-    public toastr: ToastrService
-  ) { }
+    private toastr: ToastrService,
+    private cookie: CookieComponent
+  ) { 
+    this.creator = this.cookie.getCookie('accessEmail');
+
+  }
 
   ngOnInit(): void { }
 
-  createTechnology() {
-    const newObjectTech: TechnologyModel = this.technologyForm.value;
+  createTechnology(): void {
+    let newObjectTech: TechnologyModel = this.technologyForm.value;
+    newObjectTech['creator'] = this.creator;
+
     if(newObjectTech.name != '' && newObjectTech.imgUrl != '' 
       && newObjectTech.imgUrl2 != '' && newObjectTech.gifUrl != ''
       && newObjectTech.videoUrl != '') {
         this.service.create(newObjectTech)
         .then(() => {
-          this.toastr.showToastr('success', 'Create Technology successfuly!', 'top-right', true);
-          this.router.navigate(['/home']);
+          this.toastr.showToastr('success', 'Create Technology successfully!', 'top-right', true);
+          this.router.navigate(['/technology/viewTechnologies']);
         }, err => {
           this.toastr.showToastr('error', `${err}`, 'top-right', true)
         }); 
@@ -79,7 +86,7 @@ export class CreateTechnologiesComponent implements OnInit {
       }
   }
 
-  backToTechnology() {
+  backToTechnology(): void {
     this.router.navigate(['/technology/viewTechnologies']);
   }
 }
