@@ -6,6 +6,7 @@ import { AboutComponent } from "./about/about.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { GalleryComponent } from './gallery/gallery.component';
 import { CookieComponent } from './cookie/cookie.component';
+import { AnimationComponent } from './animation/animation.component';
 
 export const SharedComponents = [
     NavigationComponent,
@@ -14,5 +15,6 @@ export const SharedComponents = [
     AboutComponent,
     PageNotFoundComponent,
     GalleryComponent,
-    CookieComponent
+    CookieComponent,
+    AnimationComponent
 ];

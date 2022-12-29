@@ -107,7 +107,9 @@ export class UpdateTechnologyComponent implements OnInit {
   }
 
   updateTechnology(): void {
-    const newObject: TechnologyModel = this.technologyForm.value;
+    let newObject: TechnologyModel = this.technologyForm.value;
+    newObject.description = newObject.description.trim();
+
     if(newObject.name != '' && newObject.imgUrl != '' 
       && newObject.imgUrl2 != '' && newObject.gifUrl != ''
       && newObject.videoUrl != '') {

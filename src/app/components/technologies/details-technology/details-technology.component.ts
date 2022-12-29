@@ -73,7 +73,8 @@ export class DetailsTechnologyComponent implements OnInit {
   }
 
   checkForEndDot(str: string): string {
-    if(str[str.length - 1] != '.' || str[str.length - 1] != ' .')
+    str = str.trim();
+    if(str[str.length - 1] != '.')
       str += '.';
     return str;
   }

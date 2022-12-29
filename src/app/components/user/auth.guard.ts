@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (this.userService.isLoggedIn() !== true) {
-        this.toastr.showToastr('error', 'Accees Denied!', 'top-right', true);
+        this.toastr.showToastr('error', "Accees Denied!\nYou don't authenticated!", 'top-right', true);
         this.router.navigate(['/home']);
     }
 

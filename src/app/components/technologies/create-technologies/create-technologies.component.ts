@@ -70,6 +70,7 @@ export class CreateTechnologiesComponent implements OnInit {
   createTechnology(): void {
     let newObjectTech: TechnologyModel = this.technologyForm.value;
     newObjectTech['creator'] = this.creator;
+    newObjectTech.description = newObjectTech.description.trim();
 
     if(newObjectTech.name != '' && newObjectTech.imgUrl != '' 
       && newObjectTech.imgUrl2 != '' && newObjectTech.gifUrl != ''

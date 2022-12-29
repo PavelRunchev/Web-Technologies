@@ -10,10 +10,10 @@ export class ToastrService {
 
   constructor() { }
 
-  showToastr(type: string, msg: string, position?: string, autoClose?: boolean): void {
+  showToastr(type: string, msg1: string, position?: string, autoClose?: boolean): void {
     localStorage.setItem("toastrType", type);
     localStorage.setItem("toastrPosition", position || 'top-right');
-    this.status.next(msg);
+    this.status.next(msg1);
 
     if(this.timer) {
       clearTimeout(this.timer);

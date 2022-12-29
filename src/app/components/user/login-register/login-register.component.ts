@@ -59,15 +59,13 @@ export class LoginRegisterComponent implements OnInit {
   }
 
   login(): void {
-    try {
       const user = this.loginForm.value;
-      this.userService.login(user.email, user.password);
+      this.userService.login(user.email, user.password)
+        .catch(err => console.log('catch error'));
+
       this.loginForm.get('email').setValue('');
       this.loginForm.get('password').setValue('');
       this.nav.ngOnInit();
-    } catch(err) {
-      console.log(err);
-    }
   }
 
   loginAuto(): void {

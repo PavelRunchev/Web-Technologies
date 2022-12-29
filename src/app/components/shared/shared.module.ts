@@ -4,9 +4,10 @@ import { RouterModule } from '@angular/router';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { SharedComponents } from './index';
+import { AnimationComponent } from './animation/animation.component';
 
 @NgModule({
-    declarations: [ ...SharedComponents ],
+    declarations: [ ...SharedComponents, AnimationComponent ],
     imports: [ 
         CommonModule,
         RouterModule,
