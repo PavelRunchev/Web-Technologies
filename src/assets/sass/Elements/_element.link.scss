@@ -12,3 +12,13 @@
     }
 }
 
+.link-form {
+    cursor: pointer;
+    color: $color-thirdly !important;
+
+    &:hover {
+        color: $color-sixthly !important;
+    }
+}
+
+

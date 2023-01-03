@@ -10,21 +10,21 @@
           <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
               <div class="mb-3">
                 <label for="user-email" class="col-form-label">Email:</label>
-                <input type="text" class="form-control" id="user-email" formControlName="email"  />
-                <div *ngIf="messageForm.get('email').touched" class="text-errors">
+                <input type="text" class="form-control input-default" id="user-email" formControlName="email"  />
+                <div *ngIf="messageForm.get('email').touched" class="error">
                   <div *ngIf="!!messageForm.get('email').errors?.pattern">Invalid Email!</div>
                 </div>
                 </div>
                 <div class="mb-3">
                 <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text" formControlName="description" ></textarea>
-                <div *ngIf="messageForm.get('description').touched" class="text-errors">
+                <textarea class="form-control input-default" id="message-text" formControlName="description" ></textarea>
+                <div *ngIf="messageForm.get('description').touched" class="error">
                   <div *ngIf="!!messageForm.get('description').errors?.minlength">Description must be min 10 caracters!</div>
                   <div *ngIf="!!messageForm.get('description').errors?.maxlength">Description must be max 5000 caracters!</div>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button [disabled]="messageForm.invalid || messageForm.pristine" type="submit" class="btn-more" data-mdb-dismiss="modal">Send message</button>
+              <div class="modal-footer px-0">
+                <button [disabled]="messageForm.invalid || messageForm.pristine" type="submit" class="btn-more btn-message-send" data-mdb-dismiss="modal">Send message</button>
               </div>
           </form>
         </div>

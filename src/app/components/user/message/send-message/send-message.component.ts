@@ -29,8 +29,4 @@ export class SendMessageComponent implements OnInit {
       this.messageForm.get('description').setValue('');
     }
   }
-
-  myProfileSaveChanges() {
-    this.toastr.showToastr('success', 'Profile settings change successfully!', 'top-right', true);
-  }
 }

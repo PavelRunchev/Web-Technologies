@@ -2,7 +2,14 @@
     <h2 class="h2-title my-5">About Us</h2>
     <div class="container mb-5">
         <p><span class="highlighting">Angular Studio - Raiders Team</span> is Information Technology Company that specializes in the provision of cost effective Information management systems. We focus on delivering high-impact solutions that incorporate customized functionality specific to the project requirements. The combination of thorough process, comprehensive experience and expansive creative vision enables us to create solutions that are innovative, usable and reliable.</p>  
-        <img class="image col-12 col-lg-6 ripple my-3"  src="https://static.wixstatic.com/media/nsplsh_1aca655bcbe44db8bbae2571cf6fe2ea~mv2.jpg/v1/fit/w_2500,h_1330,al_c/nsplsh_1aca655bcbe44db8bbae2571cf6fe2ea~mv2.jpg" data-mdb-ripple-color="light" alt="photo"/>
+        <img 
+            class="image col-12 col-lg-6 ripple my-3" 
+            [defaultImage]="defaultImage" 
+            [useSrcset]="true" 
+            [lazyLoad]="image" 
+            data-mdb-ripple-color="light" 
+            alt="photo"
+        />
         <p><span class="highlighting">Angular Studio - Raiders Team</span> was established in response to the growing market demand for high quality Innovative solutions at affordable prices. Our commitment to refining the development process and creating a superior infrastructure has allowed us to introduce a range of packages and customized solutions that enable businesses to implement high value systems.</p>
         <p>With industry experience and an ongoing relationship with well established companies, our IT consultants, web designers, and developers have worked with industry leading companies to acquire an in depth understanding of the latest technologies and processes.</p>
     </div>

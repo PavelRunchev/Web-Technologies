@@ -19,3 +19,12 @@
         box-shadow: 0 0px 0px $color-thirdly inset, 0 0 0px $color-thirdly !important;
     }
 }
+
+input[type=checkbox] {
+	background-color: $color-thirdly !important;
+	border-color: $color-thirdly !important;
+}
+
+.form-check-input:checked[type=checkbox]:after {
+    background-color: $color-secondary !important;
+}
