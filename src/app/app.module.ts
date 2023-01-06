@@ -37,11 +37,13 @@ import { TechnologiesModule } from './components/technologies/technologies.modul
 import { UserModule } from './components/user/user.module';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { ToastrComponent } from './core/toastr/toastr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ToastrComponent
   ],
   imports: [
     BrowserModule,

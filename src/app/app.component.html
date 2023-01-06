@@ -1,46 +1,36 @@
+<!-- Navigation Component -->
 <app-navigation></app-navigation>
 
-<div class="toast-container" *ngIf="showToastr" [ngClass]="{
-    success: toastrType == 'success',
-    error: toastrType == 'error',
-    warn: toastrType == 'warn',
-    info: toastrType == 'info',
-    'top-left': toastrPosition == 'top-left',
-    'top-right': toastrPosition == 'top-right',
-    'bottom-left': toastrPosition == 'bottom-left',
-    'bottom-right': toastrPosition == 'bottom-right'
-  }">
-  <span class="closeBtn" (click)="closeToastr()">X</span>
-  <div class="toast-content">
-    <span class="icon" *ngIf="toastrType == 'success'" >✔</span>
-    <span class="icon" *ngIf="toastrType == 'error'">X</span>
-    <span class="icon" *ngIf="toastrType == 'warn'">!</span>
-    <span class="icon" *ngIf="toastrType == 'info'">i</span>
-    <span>{{ toastrMsg }}</span>
-  </div>
-</div>
+<!-- Toastr Component -->
+<app-toastr></app-toastr>
 
+<!-- Login/Register form Component -->
 <app-login-register></app-login-register>
 
-<app-new-message></app-new-message>
+<!-- New Messages Component -->
+<app-new-messages></app-new-messages>
 
+<!-- Send message form Component -->
 <app-send-message></app-send-message>
 
-
+<!-- My Profile Component -->
 <app-my-profile></app-my-profile>
 
+<!-- User Settings Component -->
 <app-user-settings></app-user-settings>
 
+<!-- Header Component -->
 <app-header></app-header>
 
-
-
+<!-- container for dynamic components -->
 <main class="main-container container-fluid">
   <router-outlet></router-outlet>
 </main>
 
+<!-- Footer Component -->
 <app-footer></app-footer>
 
+<!-- Cookie Component -->
 <app-cookie></app-cookie>
 
 
